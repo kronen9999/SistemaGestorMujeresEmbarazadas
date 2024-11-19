@@ -21,5 +21,9 @@
        <button type="button">Iniciar sesion</button>
        </div>
        <img src="Public/Assets/InicioSesion_IconoMenu_Doctor.png" alt="IconoMenu">
+       <div class="div_Menu_Seleccion">
+       <p opcion="1">Paciente</p>
+       <p opcion="2">Administrador</p>
+       </div>
     </body>
 </html>

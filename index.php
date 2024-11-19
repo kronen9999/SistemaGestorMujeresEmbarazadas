@@ -8,14 +8,16 @@
     </head>
     <body>
        <img src="Public/Assets/InicioSesion_Doctores_Fondo.png" alt="ImgDoctor" class="img_sesion"> 
-       <div>
-        <h1>Inicio de sesion</h1>
-        <img src="Public/Assets/InicioSesion_Doctores_IconoDoctor.png" alt="IconoDoctor">
+       <div class="div_SesionContenido">
+        <p id="p_inicioSesion">Inicio de sesion</p>
+        <img src="Public/Assets/InicioSesion_Doctores_IconoDoctor.png" alt="IconoDoctor" class="IconoSesion">
        <p>Usuario:</p>
-       <input type="text" maxlength="100" placeholder="Ingrese su cedula o correo electronico" class="input_sesion">
+       <input type="text" maxlength="100" placeholder="Ingrese su cedula o correo electronico" class="input_sesion" required>
        <p>Contraseña:</p>
-       <input type="password"  class="input_session" placeholder="Ingrese su contraseña">
-       <p>¿Olvidaste tu contraseña?<p id ="p_recuperarContraseña"> De click aqui para recuperarla</p></p>
+       <input type="password"  placeholder="Ingrese su contraseña" class="input_sesion" required>
+       <div class="div_rec">
+       <span id="span1">¿Olvidaste tu contraseña?</span><span id="span2">Da click aqui para recuperarla</span>
+       </div>
        <button type="button">Iniciar sesion</button>
        </div>
     </body>

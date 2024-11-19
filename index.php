@@ -20,5 +20,6 @@
        </div>
        <button type="button">Iniciar sesion</button>
        </div>
+       <img src="Public/Assets/InicioSesion_IconoMenu_Doctor.png" alt="IconoMenu">
     </body>
 </html>

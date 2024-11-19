@@ -67,6 +67,15 @@ font-size:50px;
     color: #ffff;
     border:0px solid transparent;
     margin-top: 5vh;
+    box-shadow: 2px 2px 5px 2px #666666;
+    transition-property: box-shadow;
+    transition-duration: 2s;
+
+
+}
+
+.div_SesionContenido button:hover{
+box-shadow: 0px 0px 0px 0px #666666;
 }
 
 .div_rec{
@@ -80,4 +89,13 @@ font-size:50px;
 
 .div_rec #span2{
 color:#0098CF;
+}
+
+[alt="IconoMenu"]
+{
+    position: absolute;
+    width: 5vw;
+    height: 5vw;
+    z-index: 100;
+    transform: translateX(95vw);
 }

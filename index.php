@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <link rel="stylesheet" href="Public/Css/Index/index.css">
     </head>
-    <body>
+    <body login="Doctor">
        <img src="Public/Assets/InicioSesion_Doctores_Fondo.png" alt="ImgDoctor" class="img_sesion"> 
        <div class="div_SesionContenido">
         <p id="p_inicioSesion">Inicio de sesion</p>
@@ -20,10 +20,24 @@
        </div>
        <button type="button">Iniciar sesion</button>
        </div>
-       <img src="Public/Assets/InicioSesion_IconoMenu_Doctor.png" alt="IconoMenu">
-       <div class="div_Menu_Seleccion">
-       <p opcion="1">Paciente</p>
-       <p opcion="2">Administrador</p>
+       <div id="div_Menu_Acotacion">
+        <p>
+          Elija otro inicio de sesion
+        </p>
+        <div id="ImagenMenu_Acotacion">
+        <img src="Public/Assets/InicioSesion_Seleccion.png" alt="imagenMenu">
+        </div>
+       </div>
+       <div class="div_Menu_Seleccion" Menuvisible="0">
+        <div>
+          <p opcion="1" valor="Paciente">Como paciente</p>
+          <img src="Public/Assets/InicioSesion_Pacientes_IconoPaciente.png" alt="Icono paciente">
+        </div>
+        <div>
+          <p opcion="2" valor="Administrador">Como Administrador</p>
+        <img src="Public/Assets/InicioSesion_Administrador_IconoAdministrador.png" alt="Icono Administrador">
+        </div>
+        
        </div>
     </body>
 </html>

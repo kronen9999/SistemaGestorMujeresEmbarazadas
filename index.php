@@ -39,5 +39,6 @@
         <script src="Public/Javascript/Index/Manejomenu.js" defer></script>
         </div>
         </div>
+        <script src="Controllers/Ajax/Index/Index_Sesion.js" defer></script>
     </body>
 </html>

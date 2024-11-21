@@ -68,6 +68,7 @@ function  cambioMenu(TipoInicio)
             opcion2MenuImg.src="Public/Assets/InicioSesion_Doctores_IconoDoctor.png";
             menuDesplegable_opcion1.setAttribute("apartadoMenu","Administrador");
             menuDesplegable_opcion2.setAttribute("apartadoMenu","Doctor");
+            document.body.setAttribute("login","Paciente");
         }
         else if (TipoInicio=="Administrador")
         {
@@ -83,6 +84,7 @@ function  cambioMenu(TipoInicio)
             opcion2MenuImg.src="Public/Assets/InicioSesion_Pacientes_IconoPaciente.png";
             menuDesplegable_opcion1.setAttribute("apartadoMenu","Doctor");
             menuDesplegable_opcion2.setAttribute("apartadoMenu","Paciente");
+            document.body.setAttribute("login","Administrador");
         }
         else if (TipoInicio=="Doctor")
         {
@@ -98,6 +100,7 @@ function  cambioMenu(TipoInicio)
             opcion2MenuImg.src="Public/Assets/InicioSesion_Pacientes_IconoPaciente.png";
             menuDesplegable_opcion1.setAttribute("apartadoMenu","Administrador");
             menuDesplegable_opcion2.setAttribute("apartadoMenu","Paciente");
+            document.body.setAttribute("login","Doctor");
         }
 
         

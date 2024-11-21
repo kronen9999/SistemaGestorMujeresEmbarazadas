@@ -8,7 +8,7 @@
     </head>
     <body login="Doctor">
        <img src="Public/Assets/InicioSesion_Doctores_Fondo.png" alt="ImgDoctor" class="img_sesion"> 
-       <div class="div_SesionContenido">
+       <form class="div_SesionContenido">
         <p id="p_inicioSesion">Inicio de sesion</p>
         <img src="Public/Assets/InicioSesion_Doctores_IconoDoctor.png" alt="IconoDoctor" class="IconoSesion">
        <p>Usuario:</p>
@@ -19,7 +19,7 @@
        <span id="span1">¿Olvidaste tu contraseña?</span><span id="span2">Da click aqui para recuperarla</span>
        </div>
        <button type="button">Iniciar sesion</button>
-       </div>
+</form>
        <div id="div_Menu_Acotacion">
         <p>
           Elija otro inicio de sesion

@@ -176,15 +176,15 @@ height: 5vw;
 }
 
 [Menuvisible="0"]{
-    transform: translate(79vw, 0vh);
+    transform: translate(79vw, 13.5vh);
     z-index: -100;
     opacity: 0;
-   transition-property: transform;
-   transition-property:opacity;
-   transition-duration: 1.5s;
+   transition-property: transform opacity;
+   transition-duration: .5s;
 }
 [Menuvisible="1"]{
     transform: translate(79vw, 13.5vh);
     z-index: 300;
     opacity: 1;
+    transition:opacity .5s;
 }

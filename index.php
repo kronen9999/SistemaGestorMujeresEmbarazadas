@@ -29,15 +29,15 @@
         </div>
        </div>
        <div class="div_Menu_Seleccion" Menuvisible="0">
-        <div>
+        <div apartadoMenu="Paciente" divOpcion="1" >
           <p opcion="1" valor="Paciente">Como paciente</p>
-          <img src="Public/Assets/InicioSesion_Pacientes_IconoPaciente.png" alt="Icono paciente">
+          <img src="Public/Assets/InicioSesion_Pacientes_IconoPaciente.png" alt="Icono paciente" imgOpcion="1" >
         </div>
-        <div>
+        <div apartadoMenu="Administrador" divOpcion="2" >
           <p opcion="2" valor="Administrador">Como Administrador</p>
-        <img src="Public/Assets/InicioSesion_Administrador_IconoAdministrador.png" alt="Icono Administrador">
+        <img src="Public/Assets/InicioSesion_Administrador_IconoAdministrador.png" alt="Icono Administrador" imgOpcion="2" >
+        <script src="Public/Javascript/Index/Manejomenu.js" defer></script>
         </div>
-        
-       </div>
+        </div>
     </body>
 </html>

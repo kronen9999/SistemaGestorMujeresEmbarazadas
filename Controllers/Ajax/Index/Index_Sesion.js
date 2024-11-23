@@ -1,15 +1,18 @@
-const inputUsuario = document.querySelector('[type="text"]');
-const inputPassword = document.querySelector('[type="password"]');
-const tipoSesion = document.querySelector('body');
-const botonSubmit = document.querySelector('[type="button"]');
-
 document.addEventListener("DOMContentLoaded", function() {
+    // Selección de elementos
+    const inputUsuario = document.querySelector('[type="text"]');
+    const inputPassword = document.querySelector('[type="password"]');
+    const tipoSesion = document.querySelector('body');
+    const botonSubmit = document.querySelector('[type="button"]');
+
+   
     botonSubmit.addEventListener("click", function() {
+        // Obtener valores de los inputs
         const usuario = inputUsuario.value.trim();
         const contraseña = inputPassword.value.trim();
         const sesion = tipoSesion.getAttribute("login");
 
-        // Validación de campos
+        // Validaciones de entrada
         if (!usuario && !contraseña) {
             alert("Debe ingresar su usuario y contraseña.");
             return;
@@ -23,18 +26,38 @@ document.addEventListener("DOMContentLoaded", function() {
             return;
         }
 
-        // Si las validaciones pasan, se envían los datos
+        
         const xhr = new XMLHttpRequest();
-
         xhr.open('POST', 'Controllers/Ajax/Index/IndexOpcion.php', true);
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
         xhr.onreadystatechange = function() {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                alert(xhr.responseText);
+            if (xhr.readyState === 4) { 
+                if (xhr.status === 200) { 
+                    try {
+                        const response = JSON.parse(xhr.responseText);
+
+                        
+                        if (response.status === "success") {
+                            if (response.redirect) {
+                                window.location.href = response.redirect; 
+                            } else {
+                                alert(response.message); 
+                            }
+                        } else {
+                            alert(response.message); 
+                        }
+                    } catch (e) {
+                        alert("Error al interpretar la respuesta del servidor: " + xhr.responseText);
+                    }
+                } else {
+                    
+                    alert("Error del servidor. Código de estado: " + xhr.status);
+                }
             }
         };
 
+        
         const data = 
             'usuario=' + encodeURIComponent(usuario) + 
             '&contraseña=' + encodeURIComponent(contraseña) + 

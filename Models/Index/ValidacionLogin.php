@@ -26,14 +26,14 @@
 
             
             if ($resultado->num_rows > 0) {
-             return "Se encontro el registro";
+             return "true";
             } else {
                 
-                return "No se encontraron registros";
+                return "false";
             }
         } else {
             
-        return "No se encontraron registros";
+        return "false";
         }
     }
 }

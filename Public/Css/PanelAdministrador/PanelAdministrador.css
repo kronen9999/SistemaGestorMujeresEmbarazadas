@@ -40,8 +40,10 @@
     z-index: 200;
     transform:translate(0,0);
     bottom:.001vh;
-    
-    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
 }
 
 .Menu_Dinamico
@@ -55,4 +57,34 @@
    overflow-x: auto;
    
 }
+
+.botonMenu{
+    
+    background-color: #2E7D43;
+    border-radius: 10px;
+    padding: 5px;
+    box-shadow: 0px 2px 5px .1px rgb(37, 36, 36);
+    transition-property: transform;
+    transition-duration: .5s;
+    
+}
+
+.botonMenu:hover{
+    transform: scale(1.1);
+}
+
+[alt="IconoApartado"]
+{
+    width: 45px;
+    height: 45px;
+    filter:drop-shadow(0px 1px 1px black);
+    
+    
+}
+
+[botonSeleccionado="true"]
+{
+background-color: #144621;
+}
+
 

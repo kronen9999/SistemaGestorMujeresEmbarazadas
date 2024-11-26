@@ -6,12 +6,12 @@ include("../../../config.php");
 $objValidar = new ValidacionUsuario();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Validar datos recibidos
+    
     $usuario = $_POST['usuario'] ?? '';
     $contraseña = $_POST['contraseña'] ?? '';
     $tipoLogin = $_POST['tipoLogin'] ?? '';
 
-    // Si faltan datos, enviar respuesta de error
+    
     if (empty($usuario) || empty($contraseña) || empty($tipoLogin)) {
         echo json_encode([
             'status' => 'error',
@@ -20,10 +20,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
-    // Validar datos con la base de datos
+   
     $resultado = $objValidar->ConsultaDb($tipoLogin, $usuario, $usuario, $contraseña, $conexiondb);
 
-    // Generar respuesta basada en el resultado
+    
     if ($resultado == "true" && $tipoLogin == "Administrador") {
         echo json_encode([
             'status' => 'success',
@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     exit;
 } else {
-    // Si no es una solicitud POST, devolver error
+    
     echo json_encode([
         'status' => 'error',
         'message' => 'Método no permitido.'

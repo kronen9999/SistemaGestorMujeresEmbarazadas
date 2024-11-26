@@ -7,7 +7,15 @@
         <link rel="stylesheet" href="../Public/Css/PanelAdministrador/PanelAdministrador.css">
     </head>
     <body>
-        
+        <header class="cabezera">
+            
+        </header>
+        <div class="menuLateral">
+
+        </div>
+
+        <div class="Menu_Dinamico" TipoMenu="Informacion_Administrador">
+        </div>
     </body>
 
 </html>

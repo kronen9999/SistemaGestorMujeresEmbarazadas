@@ -8,13 +8,15 @@
     </head>
     <body>
         <header class="cabezera">
-            
+            <p>Informacion del perfil</p>
+            <img src="../Public/Assets/Administrador_InformacionPerfil_Icono.png" alt="Icono_Administrador">
         </header>
         <div class="menuLateral">
 
         </div>
 
         <div class="Menu_Dinamico" TipoMenu="Informacion_Administrador">
+
         </div>
     </body>
 

@@ -26,6 +26,10 @@
 
             
             if ($resultado->num_rows > 0) {
+                $filaConsulta=$resultado->fetch_assoc();
+        session_start();
+        $_SESSION["IdResponsable"]=$filaConsulta["IdResponsable"];
+        session_write_close();
              return "true";
             } else {
                 

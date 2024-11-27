@@ -87,4 +87,102 @@
 background-color: #144621;
 }
 
+.Menu_Dinamico_AdministrarPerfil_SubApartado1{
+    
+    padding-top:5vh;
+    display: flex;
+    flex-direction: row;
+}
 
+
+
+.Menu_Dinamico_AdministrarPerfil_SubApartado1_DivImg
+{
+    width: 200px;
+    height: 200px;
+    background-color: #2E7D42;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 1px 1px 5px 3px #666666;
+    margin-left: 5vw;
+    
+
+}
+.Menu_Dinamico_AdministrarPerfil_SubApartado1_DivImg img{
+    width: 180px;
+    height: 180px;
+    filter: drop-shadow(0px 1px 2px black);
+}
+
+.Menu_Dinamico_AdministrarPerfil_SubApartado1_Div_1
+{
+    display: flex;
+    flex-direction: column;
+    
+    width: 60vw;
+    margin-left: 2vw;
+    height: 33vh;
+}
+
+.Menu_Dinamico_AdministrarPerfil_SubApartado1_Div_1 p,.Menu_Dinamico_AdministrarPerfil_SubApartado2_Div2,.Menu_Dinamico_AdministrarPerfil_SubApartado2_Div1 {
+    font-size: 25px;
+}
+
+
+.Menu_Dinamico_AdministrarPerfil_SubApartado1_Div_1_DivImput input
+{
+border: none;
+border-bottom: 1px solid black;
+background-color: transparent;
+font-size: 18px;
+margin-bottom: 2vh;
+width: 30vw;
+}
+.Menu_Dinamico_AdministrarPerfil_SubApartado1_Div_1_DivImput input::placeholder{
+    font-size: 18px;
+}
+
+
+.Menu_Dinamico_AdministrarPerfil_SubApartado1_Div_1_DivImput div img{
+    margin-left: 1vw;
+    width: 2.5vw;
+    height: 2.5vw;
+    margin-bottom: 1vh;
+    
+}
+.Menu_Dinamico_AdministrarPerfil_SubApartado1_Div_1_DivImput_Div{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 1vh;
+}
+.Menu_Dinamico_AdministrarPerfil_SubApartado2{
+    
+    height: 45vh;
+    margin-left: 5vw;
+
+}
+
+.Menu_Dinamico_AdministrarPerfil_SubApartado2{
+    display: flex;
+    flex-direction: row;
+
+}
+
+.Menu_Dinamico_AdministrarPerfil_SubApartado2_Div1,.Menu_Dinamico_AdministrarPerfil_SubApartado2_Div2{
+display: flex;
+flex-direction: column;
+width: 40vw;
+height: 30vh;
+margin-top: 5vh;
+}
+
+.Menu_Dinamico_AdministrarPerfil_SubApartado2_Div2{
+    margin-left: 3vw;
+}
+
+.Menu_Dinamico_AdministrarPerfil_SubApartado2_Div2 div:nth-child(1),.Menu_Dinamico_AdministrarPerfil_SubApartado2_Div1 div:nth-child(1)
+{
+    margin-bottom: 5vh;
+}

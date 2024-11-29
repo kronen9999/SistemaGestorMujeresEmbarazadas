@@ -1,5 +1,15 @@
 <!DOCTYPE html>
 <html>
+   <?php
+session_start();
+$idSesion=isset($_SESSION["IdResponsable"])?$_SESSION["IdResponsable"]:null;
+session_write_close();
+if (!$idSesion)
+        {
+         echo "Debe iniciar sesion para poder continuar";
+         exit;
+        }
+   ?>
     <head>
         <title>PanelAdministrador</title>
         <meta charset="utf-8">
@@ -32,9 +42,13 @@
         include("../config.php");
         
 
-        session_start();
-        $idSesion=isset($_SESSION["IdResponsable"])?$_SESSION["IdResponsable"]:null;
-        session_write_close();
+        
+
+        if (!$idSesion)
+        {
+         echo "Debe iniciar sesion para poder continuar";
+         exit;
+        }
 
         $objPerfil= new InformacionPerfil();
         
@@ -59,8 +73,7 @@
                          Nombre:
                       </p>
                       <div class='Menu_Dinamico_AdministrarPerfil_SubApartado1_Div_1_DivImput_Div'>
-                      <input type='text'  class='input_Nombre' placeholder='Ingrese su nombre' id='Perfil_Nombre' value='$nombre' disable'>  
-                      <img src='../Public/Assets/Icono_Editar.png' alt='IconoEditarImputs'>
+                      <input type='text'  class='input_Nombre' placeholder='Ingrese su nombre' id='Perfil_Nombre' value='$nombre' >  
                       </div> 
                       <div class='Menu_Dinamico_AdministrarPerfil_SubApartado1_Div_1_DivImput'>
                       <p>
@@ -68,7 +81,7 @@
                       </p>
                       <div class='Menu_Dinamico_AdministrarPerfil_SubApartado1_Div_1_DivImput_Div'>
                       <input type='text'  class='input_Nombre' placeholder='Ingrese su apellido paterno' id='Perfil_ApellidoPaterno' value='$apellidoPaterno'>  
-                      <img src='../Public/Assets/Icono_Editar.png' alt='IconoEditarImputs'>
+                      
                       </div>
                     </div>
                     <div class='Menu_Dinamico_AdministrarPerfil_SubApartado1_Div_1_DivImput'>
@@ -77,7 +90,7 @@
                       </p>
                       <div class='Menu_Dinamico_AdministrarPerfil_SubApartado1_Div_1_DivImput_Div'>
                       <input type='text'  class='input_Nombre' placeholder='Ingrese su apellido materno' id='Perfil_ApellidoMaterno' value='$apellidoMaterno'>  
-                      <img src='../Public/Assets/Icono_Editar.png' alt='IconoEditarImputs'>
+                      
                       </div>
                 </div>
             </div>
@@ -93,7 +106,7 @@
                       <div class='Menu_Dinamico_AdministrarPerfil_SubApartado1_Div_1_DivImput_Div'>
                       <input type='text' class='input_Nombre' placeholder='Ingrese su numero de trabajador' id='Perfil_Notrabajador' value='$numeroTrabajador'>
 
-                      <img src='../Public/Assets/Icono_Editar.png' alt='IconoEditarImputs'>
+                      
                       </div> 
                       </div>
                       <div class='Menu_Dinamico_AdministrarPerfil_SubApartado1_Div_1_DivImput'>
@@ -102,14 +115,14 @@
                       </p>
                       <div class='Menu_Dinamico_AdministrarPerfil_SubApartado1_Div_1_DivImput_Div'>
                       <input type='text'  class='input_Nombre' placeholder='Ingrese su Telefono' id='Perfil_Telefono' value='$telefono'>  
-                      <img src='../Public/Assets/Icono_Editar.png' alt='IconoEditarImputs'>
+                      
                       </div> 
                       </div>
             </div>
             <div class='Menu_Dinamico_AdministrarPerfil_SubApartado2_Div2'>
             <div class='Menu_Dinamico_AdministrarPerfil_SubApartado1_Div_1_DivImput'>
                       <p>
-                         Contraseña:
+                         Contraseña:(Requiere autenticacion)
                       </p>
                       <div class='Menu_Dinamico_AdministrarPerfil_SubApartado1_Div_1_DivImput_Div'>
                       <input type='password'  class='input_Nombre' placeholder='Ingrese su contraseña' id='Perfil_Contraseña' value='$contraseña'>  
@@ -122,11 +135,15 @@
                       </p>
                       <div class='Menu_Dinamico_AdministrarPerfil_SubApartado1_Div_1_DivImput_Div'>
                       <input type='text'  class='input_Nombre' placeholder='Ingrese su Correo electronico' id='Perfil_Correo_Electronico' value='$correoElectronico'>  
-                      <img src='../Public/Assets/Icono_Editar.png' alt='IconoEditarImputs'>
+                     
                       </div> 
                       </div>
             </div>
-        </div>"
+        </div>
+        
+       <div class='Menu_Dinamico_AdministrarPerfil_SubApartadoSubmit'>
+       <button class='Menu_Dinamico_AdministrarPerfil_SubApartadoSubmit_button'>Guardar cambios</button>
+       <div> "
         ?>
             
         </div>

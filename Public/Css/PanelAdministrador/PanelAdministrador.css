@@ -139,6 +139,7 @@ background-color: transparent;
 font-size: 18px;
 margin-bottom: 2vh;
 width: 30vw;
+margin-top: 1vh;
 }
 .Menu_Dinamico_AdministrarPerfil_SubApartado1_Div_1_DivImput input::placeholder{
     font-size: 18px;
@@ -159,7 +160,7 @@ width: 30vw;
 }
 .Menu_Dinamico_AdministrarPerfil_SubApartado2{
     
-    height: 45vh;
+    height: 32vh;
     margin-left: 5vw;
 
 }
@@ -185,4 +186,35 @@ margin-top: 5vh;
 .Menu_Dinamico_AdministrarPerfil_SubApartado2_Div2 div:nth-child(1),.Menu_Dinamico_AdministrarPerfil_SubApartado2_Div1 div:nth-child(1)
 {
     margin-bottom: 5vh;
+}
+
+.Menu_Dinamico_AdministrarPerfil_SubApartadoSubmit{
+    width: auto;
+    height: 14vh;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.Menu_Dinamico_AdministrarPerfil_SubApartadoSubmit_button{
+width: 12vw;
+height: 6vh;
+border-radius: 25px;
+border: none;
+background-color: #2E7D42;
+box-shadow: 1px 1px 5px 1px #666666;
+color: white;
+font-size: 16px;
+transition-property: background-color transform;
+transition-duration: .5s;
+
+}
+
+.Menu_Dinamico_AdministrarPerfil_SubApartadoSubmit_button:hover{
+    background-color: #144621;
+}
+
+.Menu_Dinamico_AdministrarPerfil_SubApartadoSubmit_button:active{
+transform: scale(0.7);
 }

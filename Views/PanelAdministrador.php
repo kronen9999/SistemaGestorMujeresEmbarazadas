@@ -150,7 +150,7 @@ if (!$idSesion)
         
 
         </div>
-
+<script src="../Controllers/Ajax/PanelAdministrador/InfoAdmin/PerfilAdministradorRec.js"></script>
     </body>
 
 </html>

@@ -156,7 +156,8 @@ if (!$idSesion)
         
 
         </div>
-<script src="../Controllers/Ajax/PanelAdministrador/InfoAdmin/PerfilAdministradorRec.js"></script>
+<script src="../Controllers/Ajax/PanelAdministrador/InfoAdmin/PerfilAdministradorRec.js" defer></script>
+<script src="../Public/Javascript/PanelAdministrador/MenuLateral.js" defer></script>
     </body>
 
 </html>

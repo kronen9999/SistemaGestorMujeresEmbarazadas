@@ -6,6 +6,8 @@
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <link rel="stylesheet" href="Public/Css/Index/index.css">
     </head>
+    <?php  session_start();
+    session_destroy(); ?>
     <body login="Doctor">
        <img src="Public/Assets/InicioSesion_Doctores_Fondo.png" alt="ImgDoctor" class="img_sesion"> 
        <form class="div_SesionContenido">

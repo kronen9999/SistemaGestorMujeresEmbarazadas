@@ -16,8 +16,8 @@ botonActualizarPerfil.addEventListener("click",function(e)
     let apellidoP=inputApellidoP.value;
     let apellidoM=inputApellidoM.value;
     let noTrabajador=inputNoTrabajador.value;
-    let telefono=inputTelefono;
-    let correo=inputCorreo;
+    let telefono=inputTelefono.value;
+    let correo=inputCorreo.value;
 
     const xhr = new XMLHttpRequest();
         xhr.open('POST', '../Controllers/Ajax/PanelAdministrador/InfoAdmin/PerfilAdministrador.php', true);

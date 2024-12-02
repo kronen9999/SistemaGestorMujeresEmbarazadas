@@ -79,14 +79,14 @@ if (!$idSesion)
                          Nombre:
                       </p>
                       <div class='Menu_Dinamico_AdministrarPerfil_SubApartado1_Div_1_DivImput_Div'>
-                      <input type='text'  class='input_Nombre' placeholder='Ingrese su nombre' id='Perfil_Nombre' value='$nombre' >  
+                      <input type='text'  class='input_Nombre' placeholder='Ingrese su nombre' id='Perfil_Nombre' value='$nombre' InfoPerfilInput='nombre'>  
                       </div> 
                       <div class='Menu_Dinamico_AdministrarPerfil_SubApartado1_Div_1_DivImput'>
                       <p>
                          Apellido paterno:
                       </p>
                       <div class='Menu_Dinamico_AdministrarPerfil_SubApartado1_Div_1_DivImput_Div'>
-                      <input type='text'  class='input_Nombre' placeholder='Ingrese su apellido paterno' id='Perfil_ApellidoPaterno' value='$apellidoPaterno'>  
+                      <input type='text'  class='input_Nombre' placeholder='Ingrese su apellido paterno' id='Perfil_ApellidoPaterno' value='$apellidoPaterno' InfoPerfilInput='apellidoP'>  
                       
                       </div>
                     </div>
@@ -95,7 +95,7 @@ if (!$idSesion)
                          Apellido Materno:
                       </p>
                       <div class='Menu_Dinamico_AdministrarPerfil_SubApartado1_Div_1_DivImput_Div'>
-                      <input type='text'  class='input_Nombre' placeholder='Ingrese su apellido materno' id='Perfil_ApellidoMaterno' value='$apellidoMaterno'>  
+                      <input type='text'  class='input_Nombre' placeholder='Ingrese su apellido materno' id='Perfil_ApellidoMaterno' value='$apellidoMaterno' InfoPerfilInput='apellidoM'>  
                       
                       </div>
                 </div>
@@ -110,7 +110,7 @@ if (!$idSesion)
                          Numero trabajador:
                       </p>
                       <div class='Menu_Dinamico_AdministrarPerfil_SubApartado1_Div_1_DivImput_Div'>
-                      <input type='text' class='input_Nombre' placeholder='Ingrese su numero de trabajador' id='Perfil_Notrabajador' value='$numeroTrabajador'>
+                      <input type='text' class='input_Nombre' placeholder='Ingrese su numero de trabajador' id='Perfil_Notrabajador' value='$numeroTrabajador' InfoPerfilInput='noTrabajador'>
 
                       
                       </div> 
@@ -120,7 +120,7 @@ if (!$idSesion)
                          Telefono:
                       </p>
                       <div class='Menu_Dinamico_AdministrarPerfil_SubApartado1_Div_1_DivImput_Div'>
-                      <input type='text'  class='input_Nombre' placeholder='Ingrese su Telefono' id='Perfil_Telefono' value='$telefono'>  
+                      <input type='text'  class='input_Nombre' placeholder='Ingrese su Telefono' id='Perfil_Telefono' value='$telefono' InfoPerfilInput='telefono'>  
                       
                       </div> 
                       </div>
@@ -140,7 +140,7 @@ if (!$idSesion)
                          Correo Electronico:
                       </p>
                       <div class='Menu_Dinamico_AdministrarPerfil_SubApartado1_Div_1_DivImput_Div'>
-                      <input type='text'  class='input_Nombre' placeholder='Ingrese su Correo electronico' id='Perfil_Correo_Electronico' value='$correoElectronico'>  
+                      <input type='text'  class='input_Nombre' placeholder='Ingrese su Correo electronico' id='Perfil_Correo_Electronico' value='$correoElectronico' InfoPerfilInput='correoE'>  
                      
                       </div> 
                       </div>
@@ -148,7 +148,7 @@ if (!$idSesion)
         </div>
         
        <div class='Menu_Dinamico_AdministrarPerfil_SubApartadoSubmit'>
-       <button class='Menu_Dinamico_AdministrarPerfil_SubApartadoSubmit_button'>Guardar cambios</button>
+       <button class='Menu_Dinamico_AdministrarPerfil_SubApartadoSubmit_button' referencia='InfoPerfil_BotonSubmit'>Guardar cambios</button>
        <div> "
         ?>
             
@@ -157,7 +157,7 @@ if (!$idSesion)
 
         </div>
 <script src="../Controllers/Ajax/PanelAdministrador/InfoAdmin/PerfilAdministradorRec.js" defer></script>
-<script src="../Public/Javascript/PanelAdministrador/MenuLateral.js" defer></script>
+<script src="../Public/Javascript/PanelAdministrador/MenuLateral.js" defer></script> 
     </body>
 
 </html>

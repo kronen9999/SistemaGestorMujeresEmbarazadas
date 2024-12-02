@@ -5,6 +5,7 @@ const opcionMenuClinicas=document.querySelector('[opcionMenu="botonClinicas"]');
 const opcionMenuPacientes=document.querySelector('[opcionMenu="botonPacientes"]');
 const opcionMenuDoctores=document.querySelector('[opcionMenu="botonDoctores"]');
 const divMenuDinamico=document.querySelector('[class="Menu_Dinamico"]');
+const pTitulo=document.querySelector('[Apartado="titulo"]');
 
 opcionMenuPerfil.addEventListener("click",function(e)
 {
@@ -15,7 +16,7 @@ opcionMenuPerfil.addEventListener("click",function(e)
    opcionMenuClinicas.setAttribute("botonSeleccionado","false");
    opcionMenuPacientes.setAttribute("botonSeleccionado","false");
    opcionMenuDoctores.setAttribute("botonSeleccionado","false");
-   
+   pTitulo.textContent="Informacion Perfil";
    const xhr = new XMLHttpRequest();
    xhr.open('POST', '../Controllers/Ajax/PanelAdministrador/MenuLateral/MostrarPerfil.php', true);
    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
@@ -48,6 +49,7 @@ opcionMenuClinicas.addEventListener("click",function(e)
        opcionMenuPerfil.setAttribute("botonSeleccionado","false");
        opcionMenuPacientes.setAttribute("botonSeleccionado","false");
        opcionMenuDoctores.setAttribute("botonSeleccionado","false");
+       pTitulo.textContent="Administrar clinicas";
        divMenuDinamico.innerHTML=`<p>Se modifico</p>`;
         }
     
@@ -61,6 +63,7 @@ opcionMenuPacientes.addEventListener("click",function(e)
        opcionMenuClinicas.setAttribute("botonSeleccionado","false");
        opcionMenuPerfil.setAttribute("botonSeleccionado","false");
        opcionMenuDoctores.setAttribute("botonSeleccionado","false");
+       pTitulo.textContent="Administrar Pacientes";
         }
 });
 opcionMenuDoctores.addEventListener("click",function(e)
@@ -72,6 +75,7 @@ opcionMenuDoctores.addEventListener("click",function(e)
        opcionMenuClinicas.setAttribute("botonSeleccionado","false");
        opcionMenuPacientes.setAttribute("botonSeleccionado","false");
        opcionMenuPerfil.setAttribute("botonSeleccionado","false");
+       pTitulo.textContent="Administrar Doctores";
         }
 });
 

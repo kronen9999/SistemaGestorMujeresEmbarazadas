@@ -13,7 +13,14 @@ class MostrarClinicas
 
    $resultadoConsulta=$consulta->get_result();
 
-   $htmlDevolver="<div class='Administrador_PanelClinicas'>";
+   $htmlDevolver="
+   <div class='Administrador_PanelClinicas_Busqueda'>
+   <div class='Administrador_PanelClinicas_Busqueda_inputimg'>
+   <input type='text' placeholder='Buscar clinica'>
+   <img src='../Public/Assets/IconoBusqueda.png'>
+   </div>
+   </div>
+   <div class='Administrador_PanelClinicas'>";
    while($filaConsulta=$resultadoConsulta->fetch_assoc())
    {
     $idClinica=$filaConsulta["IdClinica"];

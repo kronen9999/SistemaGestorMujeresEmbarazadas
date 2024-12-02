@@ -1,6 +1,11 @@
 document.body.addEventListener("click", function (e) {
 
-    if (e.target.matches('[referencia="InfoPerfil_BotonSubmit"]')) {
+    objMenuDinamico=document.querySelector('[class="Menu_Dinamico"]');
+
+    if (objMenuDinamico.getAttribute("TipoMenu")=="Informacion_Administrador")
+    {
+
+ if (e.target.matches('[referencia="InfoPerfil_BotonSubmit"]')) {
         
         const inputNombre=document.querySelector("[InfoPerfilInput='nombre']");
         const inputApellidoP=document.querySelector("[InfoPerfilInput='apellidoP']");
@@ -61,4 +66,7 @@ document.body.addEventListener("click", function (e) {
          }
        
     }
+    }
+
+   
 });

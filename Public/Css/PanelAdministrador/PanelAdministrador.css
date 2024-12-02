@@ -229,6 +229,8 @@ transform: scale(0.7);
     flex-direction: row;
     align-items: center;
     justify-content: flex-end;
+    margin-left: 35vw;
+    margin-right: 1vw;
 }
 
 .Administrador_PanelClinicas_Busqueda_inputimg{
@@ -238,7 +240,7 @@ transform: scale(0.7);
     align-items: center;
     justify-content: center;
     flex-direction: row;
-    margin-right: 10vw;
+   
     box-shadow: 1px 1px 5px 2px #666666;
     border-radius: 10px;
 }
@@ -266,13 +268,35 @@ transform: scale(1.1);
 }
 
 .Administrador_PanelClinicas{
-    width: 89vw;
+    margin-top: 1vh;
+    width: 79.5vw;
     height:auto;
-    background-color: red;
     padding: 2vw 2vh;
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    overflow-x: auto;
+    margin-left: 6vw;
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px 2px #666666;
+}
+
+.Administrador_PanelClinicas_Descripcion{
+width:auto;
+display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    box-shadow: 1px 1px 5px 2px #666666;
+    width: fit-content;
+    height: 10vh;
+    margin-top: 5vh;
+    margin-left: 6vw;
+    border-radius: 10px;
+
+}
+.Administrador_PanelClinicas_Descripcion p{
+    font-size: 40px;
+    padding: 1vw;
+    border-radius: 10px;
 }
 
 .div_Clinica img{
@@ -282,6 +306,8 @@ transform: scale(1.1);
 
 
 .div_Clinica{
+    min-width: 20vw;
+    min-height: 40vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -297,9 +323,18 @@ transform: scale(1.1);
 .div_Clinica p{
     font-size: 18px;
 }
+}.div_Clinica p:nth-child(1){
+    color: red;
+}
 
 .div_Clinica:hover{
     transform: scale(1.1);
 }
 
+[tipo="Agregar"] p
+{
+font-size: 30px;
+margin-top: 5vh;
+color: #666666;
+}
 

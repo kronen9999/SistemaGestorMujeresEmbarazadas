@@ -17,6 +17,7 @@ opcionMenuPerfil.addEventListener("click",function(e)
    opcionMenuPacientes.setAttribute("botonSeleccionado","false");
    opcionMenuDoctores.setAttribute("botonSeleccionado","false");
    pTitulo.textContent="Informacion Perfil";
+
    const xhr = new XMLHttpRequest();
    xhr.open('POST', '../Controllers/Ajax/PanelAdministrador/MenuLateral/MostrarPerfil.php', true);
    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
@@ -40,6 +41,7 @@ opcionMenuPerfil.addEventListener("click",function(e)
     }
 
 });
+
 opcionMenuClinicas.addEventListener("click",function(e)
 {
     if (this.getAttribute("botonSeleccionado")=="false")
@@ -50,7 +52,27 @@ opcionMenuClinicas.addEventListener("click",function(e)
        opcionMenuPacientes.setAttribute("botonSeleccionado","false");
        opcionMenuDoctores.setAttribute("botonSeleccionado","false");
        pTitulo.textContent="Administrar clinicas";
-       divMenuDinamico.innerHTML=`<p>Se modifico</p>`;
+
+       const xhr = new XMLHttpRequest();
+       xhr.open('POST', '../Controllers/Ajax/PanelAdministrador/AdministrarClinicas/AdministrarClinicas.php', true);
+       xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+       
+       xhr.onreadystatechange = function() {
+           if (xhr.readyState === 4) { 
+               if (xhr.status === 200) { 
+                   
+                   divMenuDinamico.innerHTML = xhr.responseText;
+               } else {
+                
+                   alert("Error del servidor. Código de estado: " + xhr.status);
+               }
+           }
+       };
+       
+       
+       xhr.send();
+       
+       
         }
     
 });

@@ -336,7 +336,7 @@ color: #666666;
 }
 
 
-.Administrador_Clinicas_ventanaEditar{
+.Administrador_Clinicas_ventanaEditar, .Administrador_Clinicas_ventanaAgregar{
   
     width: auto;
     height: 70vh;
@@ -346,22 +346,28 @@ color: #666666;
     
 }
 
-.Administrador_Clinicas_ventanaEditar img{
+.Administrador_Clinicas_ventanaEditar img,.Administrador_Clinicas_ventanaAgregar img{
     width: 40vw;
     height: 40vw;
 }
-.Administrador_Clinicas_ventanaEditar_div{
-   
+
+.Administrador_Clinicas_ventanaAgregar img{
+    width: 30vw;
+    height: 30vw;
+    margin-left: 5vw;
+}
+.Administrador_Clinicas_ventanaEditar_div, .Administrador_Clinicas_ventanaAgregar_div{
+   margin-left: 5vw;
     width:fit-content;
     height: auto;
 }
 
-.Administrador_Clinicas_ventanaEditar_div p{
+.Administrador_Clinicas_ventanaEditar_div p,.Administrador_Clinicas_ventanaAgregar_div p{
     font-size: 25px;
     margin-bottom: 1vh;
 }
 
-.Administrador_Clinicas_ventanaEditar_div input{
+.Administrador_Clinicas_ventanaEditar_div input , .Administrador_Clinicas_ventanaAgregar_div input{
     width: 50vw;
     height: 5vh;
     border: none;
@@ -371,7 +377,7 @@ color: #666666;
     margin-bottom: 5vh;
 }
 
-.contenedorBotonesVentanaEditarClinica{
+.contenedorBotonesVentanaEditarClinica,.contenedorBotonesVentanaAgregarClinica{
     width: auto;
     height: 14vh;
     display: flex;
@@ -380,7 +386,7 @@ color: #666666;
     justify-content: center;
 }
 
-.contenedorBotonesVentanaEditarClinica button{
+.contenedorBotonesVentanaEditarClinica button, .contenedorBotonesVentanaAgregarClinica button{
 width: 10vw;
 height: 5vh;
 border-radius: 20px;
@@ -391,20 +397,20 @@ transition-property: transform;
 transition-duration: .5s;
 }
 
-.contenedorBotonesVentanaEditarClinica button:hover{
+.contenedorBotonesVentanaEditarClinica button:hover, .contenedorBotonesVentanaAgregarClinica button:hover{
     transform: scale(1.1);
 }
 
-.contenedorBotonesVentanaEditarClinica button:active{
+.contenedorBotonesVentanaEditarClinica button:active,.contenedorBotonesVentanaAgregarClinica button:active{
     transform: scale(.8);
 }
 
-.btnGuardarEditarClinica{
+.btnGuardarEditarClinica,.btnGuardarAgregarClinica{
 background-color: #144621;
 margin-right: 5vw;
 }
 
-.btnCancelarEditarClinica{
+.btnCancelarEditarClinica,.btnCancelarAgregarClinica{
     background-color:#730909;
     margin-left: 5vw;
     }

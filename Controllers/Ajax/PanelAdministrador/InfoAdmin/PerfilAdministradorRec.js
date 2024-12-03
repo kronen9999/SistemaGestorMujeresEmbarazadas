@@ -163,6 +163,54 @@ document.body.addEventListener("click", function (e) {
         xhr2.send(); 
     }
 
+    else if (e.target.matches('[tipo="Agregar"]'))
+    {
+objMenuDinamico.innerHTML=`<div class='Administrador_Clinicas_ventanaAgregar'> 
+    <img src='../Public/Assets/IconoAgregar.png'>
+    <div class='Administrador_Clinicas_ventanaAgregar_div'>
+    <p>Id de la clinica:</p>
+    <input type='number' placeholder='Ingrese el id de su clinica' AgregarClinica='id'>
+    <p>Nombre de la clinica:</p>
+    <input type='text' placeholder='Ingrese el nombre de su clinica' AgregarClinica='nombre'>
+    <p>Localidad de la clinica:</p>
+    <input type='text' placeholder='Ingrese la localidad donde se ubica su clinica' AgregarClinica='localidad'>
+    <p>Direccion de la clinica:</p>
+    <input type='text' placeholder='Ingrese la direccion de su clinica' AgregarClinica='direccion'>
+    </div>
+    </div>
+    <div class='contenedorBotonesVentanaAgregarClinica'>
+    <button class='btnGuardarAgregarClinica'>Guardar cambios</button>
+    <button class='btnCancelarAgregarClinica'>Cancelar</button>
+    </div>`;
+
+    }
+
+    if (e.target.matches("[class='btnGuardarAgregarClinica']"))
+    {
+        
+    }
+    else if (e.target.matches("[class='btnCancelarAgregarClinica']"))
+    {
+        let xhr2 = new XMLHttpRequest();
+        xhr2.open('POST', '../Controllers/Ajax/PanelAdministrador/AdministrarClinicas/AdministrarClinicas.php', true);
+        xhr2.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        
+        xhr2.onreadystatechange = function() {
+            if (xhr2.readyState === 4) { 
+                if (xhr2.status === 200) { 
+                    
+                 objMenuDinamico.innerHTML = xhr2.responseText;
+                } else {
+                 
+                    alert("Error del servidor. Código de estado: " + xhr2.status);
+                }
+            }
+        };
+        
+        
+        xhr2.send(); 
+    }
+
 
     }
 

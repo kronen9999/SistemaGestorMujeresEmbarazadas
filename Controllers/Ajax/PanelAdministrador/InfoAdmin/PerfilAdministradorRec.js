@@ -196,7 +196,7 @@ objMenuDinamico.innerHTML=`<div class='Administrador_Clinicas_ventanaAgregar'>
         {
  
             let xhr2 = new XMLHttpRequest();
-            xhr2.open('POST', '../Controllers/Ajax/PanelAdministrador/AdministrarClinicas/AgregarClinica.php', true);
+            xhr2.open('POST', '../Controllers/Ajax/PanelAdministrador/AdministrarClinicas/AgregarClinicas.php', true);
             xhr2.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
             
             xhr2.onreadystatechange = function() {

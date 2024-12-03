@@ -112,7 +112,7 @@ document.body.addEventListener("click", function (e) {
             if (xhr2.readyState === 4) { 
                 if (xhr2.status === 200) { 
                     
-                 objMenuDinamico.innerHTML = xhr2.responseText;
+                 alert(xhr2.responseText);
                 } else {
                  
                     alert("Error del servidor. Código de estado: " + xhr2.status);

@@ -111,8 +111,18 @@ document.body.addEventListener("click", function (e) {
         xhr2.onreadystatechange = function() {
             if (xhr2.readyState === 4) { 
                 if (xhr2.status === 200) { 
-                    
-                 alert(xhr2.responseText);
+
+                    if (xhr2.response=="false")
+                    {
+                alert("No se detectaron cambios en los campos");
+                    }
+                    else
+                    {
+                        alert ("Datos actualizados correctamente");
+                       objMenuDinamico.innerHTML=xhr2.response;  
+                    }
+
+                
                 } else {
                  
                     alert("Error del servidor. Código de estado: " + xhr2.status);
@@ -121,8 +131,8 @@ document.body.addEventListener("click", function (e) {
         };
         
         let data="idClinica="+encodeURIComponent(varId.value)+
-                  "&nombreClinica="+encodeURIComponent(varNomnbre.value);
-                  "&localidadClinica="+encodeURIComponent(varLocalidad.value);
+                  "&nombreClinica="+encodeURIComponent(varNomnbre.value)+
+                  "&localidadClinica="+encodeURIComponent(varLocalidad.value)+
                   "&direccionClinica="+encodeURIComponent(varDireccion.value);
         
         xhr2.send(data); 

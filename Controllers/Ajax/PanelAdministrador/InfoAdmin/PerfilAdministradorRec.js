@@ -187,6 +187,38 @@ objMenuDinamico.innerHTML=`<div class='Administrador_Clinicas_ventanaAgregar'>
 
     if (e.target.matches("[class='btnGuardarAgregarClinica']"))
     {
+        let agclinicaID=document.querySelector("[AgregarClinica='id']");
+        let agclinicaNombre=document.querySelector("[AgregarClinica='nombre']");
+        let agclinicaLocalidad=document.querySelector("[AgregarClinica='localidad']");
+        let agclinicaDireccion=document.querySelector("[AgregarClinica='direccion']");
+
+        if (agclinicaID&&agclinicaNombre&&agclinicaLocalidad&&agclinicaDireccion)
+        {
+ 
+            let xhr2 = new XMLHttpRequest();
+            xhr2.open('POST', '../Controllers/Ajax/PanelAdministrador/AdministrarClinicas/AgregarClinica.php', true);
+            xhr2.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            
+            xhr2.onreadystatechange = function() {
+                if (xhr2.readyState === 4) { 
+                    if (xhr2.status === 200) { 
+                        
+                     objMenuDinamico.innerHTML = xhr2.responseText;
+                    } else {
+                     
+                        alert("Error del servidor. Código de estado: " + xhr2.status);
+                    }
+                }
+            };
+             let data="idClinica="+decodeURIComponent(agclinicaID.value)
+             +"&nomnbreClinica="+decodeURIComponent(agclinicaNombre.value)
+             +"&localidadClinica="+decodeURIComponent(agclinicaLocalidad.value)
+             +"&direccionClinica="+decodeURIComponent(agclinicaDireccion.value);
+            
+            xhr2.send(data); 
+
+        }
+
         
     }
     else if (e.target.matches("[class='btnCancelarAgregarClinica']"))

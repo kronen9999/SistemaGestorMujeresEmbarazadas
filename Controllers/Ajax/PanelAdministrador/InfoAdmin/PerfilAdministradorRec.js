@@ -97,6 +97,38 @@ document.body.addEventListener("click", function (e) {
  }
  if (e.target.matches("[class='btnGuardarEditarClinica']"))
     {
+        let varId=document.querySelector("[editarClinica='id']");
+        let varNomnbre=document.querySelector("[editarClinica='nombre']");
+        let varLocalidad=document.querySelector("[editarClinica='localidad']");
+        let varDireccion=document.querySelector("[editarClinica='direccion']");
+
+        if (varId&&varNomnbre&&varLocalidad&&varDireccion)
+        {
+            let xhr2 = new XMLHttpRequest();
+        xhr2.open('POST', '../Controllers/Ajax/PanelAdministrador/AdministrarClinicas/EditarClinicas.php', true);
+        xhr2.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        
+        xhr2.onreadystatechange = function() {
+            if (xhr2.readyState === 4) { 
+                if (xhr2.status === 200) { 
+                    
+                 objMenuDinamico.innerHTML = xhr2.responseText;
+                } else {
+                 
+                    alert("Error del servidor. Código de estado: " + xhr2.status);
+                }
+            }
+        };
+        
+        let data="idClinica="+encodeURIComponent(varId.value)+
+                  "&nombreClinica="+encodeURIComponent(varNomnbre.value);
+                  "&localidadClinica="+encodeURIComponent(varLocalidad.value);
+                  "&direccionClinica="+encodeURIComponent(varDireccion.value);
+        
+        xhr2.send(data); 
+         
+        }
+        
         
     }
     else if (e.target.matches("[class='btnCancelarEditarClinica']"))

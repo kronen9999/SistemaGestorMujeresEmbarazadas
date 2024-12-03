@@ -16,7 +16,7 @@ document.body.addEventListener("click", function (e) {
 
         if (inputNombre&&inputApellidoP&&inputApellidoM&&inputNoTrabajador&&inputTelefono&&inputCorreo) 
          {
-            const xhr = new XMLHttpRequest();
+            let xhr = new XMLHttpRequest();
             xhr.open('POST', '../Controllers/Ajax/PanelAdministrador/InfoAdmin/PerfilAdministrador.php', true);
             xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     
@@ -66,6 +66,62 @@ document.body.addEventListener("click", function (e) {
          }
        
     }
+    }
+
+    else if(objMenuDinamico.getAttribute("TipoMenu")=="Administrar_Clinicas")
+    {
+ if (e.target.matches('[tipo="Seleccionable"]'))
+ {
+    let idClinica=e.target.getAttribute("IdClinica");
+    let nombreClinica=e.target.getAttribute("nombreClinica");
+    let localidadClinica=e.target.getAttribute("localidadClinica");
+    let direccionClinica=e.target.getAttribute("direccionClinica");
+
+    objMenuDinamico.innerHTML=`<div class='Administrador_Clinicas_ventanaEditar'> 
+    <img src='../Public/Assets/IconoClinicaOscuro.png'>
+    <div class='Administrador_Clinicas_ventanaEditar_div'>
+    <p>Id de la clinica:</p>
+    <input type='number' value='${idClinica}' editarClinica='id'>
+    <p>Nombre de la clinica:</p>
+    <input type='text' value='${nombreClinica}' editarClinica='nombre'>
+    <p>Localidad de la clinica:</p>
+    <input type='text' value='${localidadClinica}' editarClinica='localidad'>
+    <p>Direccion de la clinica:</p>
+    <input type='text' value='${direccionClinica}' editarClinica='direccion'>
+    </div>
+    </div>
+    <div class='contenedorBotonesVentanaEditarClinica'>
+    <button class='btnGuardarEditarClinica'>Guardar cambios</button>
+    <button class='btnCancelarEditarClinica'>Cancelar</button>
+    </div>`;
+ }
+ if (e.target.matches("[class='btnGuardarEditarClinica']"))
+    {
+        
+    }
+    else if (e.target.matches("[class='btnCancelarEditarClinica']"))
+    {
+       let xhr2 = new XMLHttpRequest();
+        xhr2.open('POST', '../Controllers/Ajax/PanelAdministrador/AdministrarClinicas/AdministrarClinicas.php', true);
+        xhr2.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        
+        xhr2.onreadystatechange = function() {
+            if (xhr2.readyState === 4) { 
+                if (xhr2.status === 200) { 
+                    
+                 objMenuDinamico.innerHTML = xhr2.responseText;
+                } else {
+                 
+                    alert("Error del servidor. Código de estado: " + xhr2.status);
+                }
+            }
+        };
+        
+        
+        xhr2.send(); 
+    }
+
+
     }
 
    

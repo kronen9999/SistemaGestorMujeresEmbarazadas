@@ -33,7 +33,9 @@ class MostrarClinicas
    {
     $idClinica=$filaConsulta["IdClinica"];
     $nombreClinica=$filaConsulta["NombreClinica"];
-    $htmlDevolver.="<div class='div_Clinica' tipo='Seleccionable' idClinica='$idClinica'>
+    $localidadClinica=$filaConsulta["Localidad"];
+    $direccionClinica=$filaConsulta["Direccion"];
+    $htmlDevolver.="<div class='div_Clinica' tipo='Seleccionable' idClinica='$idClinica' nombreClinica='$nombreClinica' localidadClinica='$localidadClinica' direccionClinica='$direccionClinica'>
 <img src='../Public/Assets/IconoClinicaOscuro.png'>
 <p>Id de la clinica:</p>
 <p>$idClinica</p>

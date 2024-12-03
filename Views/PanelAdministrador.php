@@ -67,9 +67,8 @@ if (!$idSesion)
         ?>
             
         </div>
-        
 
-        </div>
+                
 <script src="../Controllers/Ajax/PanelAdministrador/InfoAdmin/PerfilAdministradorRec.js" defer></script>
 <script src="../Controllers/Ajax/PanelAdministrador/MenuLateral/MenuLateral.js" defer></script> 
     </body>

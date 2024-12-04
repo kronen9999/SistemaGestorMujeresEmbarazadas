@@ -98,6 +98,28 @@ opcionMenuDoctores.addEventListener("click",function(e)
        opcionMenuPacientes.setAttribute("botonSeleccionado","false");
        opcionMenuPerfil.setAttribute("botonSeleccionado","false");
        pTitulo.textContent="Administrar Doctores";
+
+       const xhr = new XMLHttpRequest();
+       xhr.open('POST', '../Controllers/Ajax/PanelAdministrador/MenuLateral/MostrarDoctores.php', true);
+       xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+       
+       xhr.onreadystatechange = function() {
+           if (xhr.readyState === 4) { 
+               if (xhr.status === 200) { 
+                   
+                   divMenuDinamico.innerHTML = xhr.responseText;
+               } else {
+                
+                   alert("Error del servidor. Código de estado: " + xhr.status);
+               }
+           }
+       };
+       
+       
+       xhr.send();
+       
+       
+       
         }
 });
 

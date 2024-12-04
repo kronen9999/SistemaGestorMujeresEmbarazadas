@@ -415,3 +415,151 @@ margin-right: 5vw;
     margin-left: 5vw;
     }
 
+/* Estilos para el panel de administrador _ administrar clinicas*/
+
+.Administrador_PanelDoctor_Busqueda{
+    width: auto;
+    height: 10vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    margin-left: 35vw;
+    margin-right: 1vw;
+}
+
+.Administrador_PanelDoctor_Busqueda_inputimg{
+    width:auto;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+   
+    box-shadow: 1px 1px 5px 2px #666666;
+    border-radius: 10px;
+}
+.Administrador_PanelDoctor_Busqueda_inputimg input{
+    width: 15vw;
+    height: 3vw;
+    font-size: 18px;
+    border: none;
+    background-color: transparent;
+}
+
+.Administrador_PanelDoctor_Busqueda_inputimg img{
+    width: 3vw;
+    height: 3vw;
+    transition-property:transform;
+    transition-duration:.5s;
+}
+
+.Administrador_PanelDoctor_Busqueda_inputimg img:hover{
+transform: scale(1.1);
+}
+
+.Administrador_PanelDoctor_Busqueda_inputimg img:active{
+    transform: scale(.1);
+}
+
+.Administrador_PanelDoctor{
+    margin-top: 1vh;
+    width: 79.5vw;
+    height:auto;
+    padding: 2vw 2vh;
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    margin-left: 6vw;
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px 2px #666666;
+}
+
+.Administrador_PanelDoctor_Descripcion{
+width:auto;
+display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    box-shadow: 1px 1px 5px 2px #666666;
+    width: fit-content;
+    height: 10vh;
+    margin-top: 5vh;
+    margin-left: 6vw;
+    border-radius: 10px;
+
+}
+.Administrador_PanelDoctor_Descripcion p{
+    font-size: 40px;
+    padding: 1vw;
+    border-radius: 10px;
+}
+
+.Administrador_PanelDoctor_ContenedorDoctores{
+    margin-top: 1vh;
+    width: 81.5vw;
+    height:50vh;
+    padding: 2vw 2vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    overflow-x: auto;
+    margin-left: 6vw;
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px 2px #666666;
+   
+}
+
+.Administrador_PanelDoctor_ContenedorDoctores_Doctor,.Administrador_PanelDoctor_ContenedorDoctores_Agregar{
+ width: 18vw;
+ height: 20vw;
+ border: none;
+ box-shadow: 1px 1px 5px 2px #666666;
+ border-radius: 10px;
+ margin: 5vh 8vh;
+ display: flex;
+ flex-direction: column;
+align-items: center;
+transition-property: transform;
+transition-duration: .5s;
+}
+
+.Administrador_PanelDoctor_ContenedorDoctores_Doctor:hover,.Administrador_PanelDoctor_ContenedorDoctores_Agregar:hover{
+    transform: scale(1.1);
+   }
+
+.Administrador_PanelDoctor_ContenedorDoctores_Doctor img{
+    width: 7vw;
+    height: 7vw;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+    text-anchor: 2px;
+
+}
+.Administrador_PanelDoctor_ContenedorDoctores_Doctor [tipoP='descripcion']{
+    font-size: 17px;
+    color: rgb(19, 35, 99);
+}
+
+.Administrador_PanelDoctor_ContenedorDoctores_Doctor [tipoP='contenido']{
+    font-size: 15px;
+    margin-bottom: 1.5vh;
+
+}
+
+[tipoOpcionDoctor='Agregar'] img
+{
+    width: 8vw;
+    height: 8vw;
+    margin-bottom: 3vh;
+}
+
+[tipoOpcionDoctor='Agregar']
+{
+    align-items: center  !important;
+    justify-content: center  !important; 
+}
+
+[tipoOpcionDoctor='Agregar'] p{
+ color:#666666;    
+ font-size: 20px;
+}

@@ -202,8 +202,16 @@ objMenuDinamico.innerHTML=`<div class='Administrador_Clinicas_ventanaAgregar'>
             xhr2.onreadystatechange = function() {
                 if (xhr2.readyState === 4) { 
                     if (xhr2.status === 200) { 
+                        if (xhr2.response!="false")
+                        {
+                            alert("Clinica registrada correctamente");
+                            objMenuDinamico.innerHTML = xhr2.responseText;
+                        }
+                        else{
+                            alert("No se pudo registrar la clinica");
+                        }
                         
-                     objMenuDinamico.innerHTML = xhr2.responseText;
+                     
                     } else {
                      
                         alert("Error del servidor. Código de estado: " + xhr2.status);

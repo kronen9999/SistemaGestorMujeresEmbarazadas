@@ -29,7 +29,10 @@ public function MuestreoDoctores($conexionDB,$idResponsable)
      {
         $cedula=$fila["Cedula"];
         $nombre=$fila["Nombre"];
+        $apellidoP=$fila["ApellidoPaterno"];
+        $apellidoM=$fila["ApellidoMaterno"];
         $idClinica=$fila["IdClinica"];
+        $nombreClinica=$fila["NombreClinica"];
         $genero=$fila["Genero"];
 
         $htmlRetornar.="<div class='Administrador_PanelDoctor_ContenedorDoctores_Doctor' cedulaDoc='$cedula' nombreDoc='$nombre' idClinica='$idClinica' genero='$genero'   tipoOpcionDoctor='Seleccionar'>";
@@ -42,11 +45,11 @@ $htmlRetornar.="<img src='../Public/Assets/Icono_Doctor_M.png' alt='iconoDoctor'
     $htmlRetornar.="<img src='../Public/Assets/Icono_Doctora_F.png' alt='iconoDoctor'>";
    }
    $htmlRetornar.="<p tipoP='descripcion'>Cedula:</p>
-   <p tipoP='contenido'>380312</p>
+   <p tipoP='contenido'>$cedula</p>
    <p tipoP='descripcion'>Nombre:</p>
-   <p tipoP='contenido'>Anegelica perez nava</p>
+   <p tipoP='contenido'>$nombre $apellidoP $apellidoM</p>
    <p tipoP='descripcion'>Clinica:</p>
-   <p tipoP='contenido'>San antonio boqueron</p>
+   <p tipoP='contenido'>$nombreClinica</p>
    </div>";
 
      }

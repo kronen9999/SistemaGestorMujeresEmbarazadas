@@ -691,6 +691,7 @@ flex-direction: row;
 }
 
 .SubContenedorEditarDoctor2_1_botones button{
+    width: 10vw;
 border: none;
 padding: .5vw;
 border-radius: 20px;

@@ -6,17 +6,16 @@
     $apellidoMDoctor,$TelefonoMovil,$TelefonoOficina,$CorreoElectronico,$Generodoctor)
     {
 
-        $consulta=$conexionDB->prepare("Update select_Administrador_Doctores set Nombre=? ,ApellidoPaterno=? ,ApellidoMaterno=? ,
-TelefonoMovil=? ,TelefonoOficina=? , CorreoElectronico=? ,Genero=?where Cedula=? and IdResponsable=?;");
+        $consulta=$conexionDB->prepare("UPDATE select_Administrador_Doctores SET Nombre=?, ApellidoPaterno=?, ApellidoMaterno=?, TelefonoMovil=?, TelefonoOficina=?, CorreoElectronico=?, Genero=? WHERE Cedula=? AND IdResponsable=?");
 
 $consulta->bind_param("ssssssssi",$nombreDoctor,$apellidoPDoctor,$apellidoMDoctor,$TelefonoMovil,$TelefonoOficina,$CorreoElectronico,$Generodoctor,$CedulaDoctor,$idResponsable);
     
 $consulta->execute();
 
 if ($consulta->affected_rows > 0) {
-    return "true"; 
+    return true; 
 } else {
-    return "false"; 
+    return false; 
 }
 
 }

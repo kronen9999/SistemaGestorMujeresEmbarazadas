@@ -287,9 +287,156 @@ xhr2.send(data);
 else if (e.target.matches("[tipoopciondoctor='Agregar']"))
     {
     
+        objMenuDinamico.innerHTML=`<div class="SubContenedorEditarDoctor1">
+        <div class="SubContenedorEditarDoctor1_divImg">
+        <img src="../Public/Assets/IconoAgregar.png">
+</div>
+<div class="SubContenedorEditarDoctor1_1">
+<div class="DoctorInput_text">
+<p>Nombre:</p>
+<input type="text" admindoctorcampo="nombre" placeholder='Ingrese el nombre del doctor(a)'>
+</div>
+<div class="DoctorInput_text">
+<p>Apellido paterno:</p>
+<input type="text" admindoctorcampo="apellidoP" placeholder='Ingrese el apellido paterno del doctor(a)'>
+</div>
+<div class="DoctorInput_text">
+<p>Apellido materno:</p>
+<input type="text" admindoctorcampo="apellidoM" placeholder='Ingrese el apellido materno del doctor(a)'>
+</div>
+</div>
+</div>
+<div class="SubContenedorEditarDoctor2">
+<div class="SubContenedorEditarDoctor2_1">
+<div class="DoctorInput_text">
+<p>Cedula:</p>
+<input type="text" admindoctorcampo="cedula" placeholder='Ingrese la cedula del doctor(a)'>
+</div>
+<div class="DoctorInput_text">
+<p>Telefono movil:</p>
+<input type="text" admindoctorcampo="telefonoM" placeholder='Ingrese el telefono movil del doctor(a)'>
+</div>
+<div class="DoctorInput_text">
+<p>Correo electronico:</p>
+<input type="text" admindoctorcampo="correoE" placeholder='Ingrese el correo electronico del doctor (a)'>
+</div>
+</div>
+
+<div class="SubContenedorEditarDoctor2_1">
+<div class="SubContenedorEditarDoctor2_1_cmbox">
+<p>Genero:</p>
+<select class="SubContenedorEditarDoctor2_1_select" admindoctorcampo="genero"><option value="Masculino" selected>
+    Masculino
+    </option>
+    <option value="Femenino" >
+    Femenino
+    </option>
+</select>
+
+</div>
+
+<div class="DoctorInput_text">
+<p>Telefono oficina:</p>
+<input type="text" admindoctorcampo="telefonoO" placeholder='Ingrese el telefono de oficina del doctor (a)'>
+</div>
+<div class="DoctorInput_text">
+<p>Contraseña:</p>
+<div class="DoctorInput_text_input">
+<input type="password" placeholder='Ingrese la contraseña'>
+<img src="../Public/Assets/Icono_Editar.png">
+</div>
+</div>
+</div>
+</div><div class="SubContenedorEditarDoctor2_1_botones">
+<button tipo="botonAceptarEditarDoctor">Guardar cambios</button>
+<button tipo="botonAceptarCancelarDoctor">Cancelar</button>
+</div>
+`;
 
     }
 
     }
-   
+
+    if (e.target.matches('[tipo="botonAceptarCancelarDoctor"]'))
+    {
+        
+        let  xhr = new XMLHttpRequest();
+       xhr.open('POST', '../Controllers/Ajax/PanelAdministrador/MenuLateral/MostrarDoctores.php', true);
+       xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+       
+       xhr.onreadystatechange = function() {
+           if (xhr.readyState === 4) { 
+               if (xhr.status === 200) { 
+                   
+                   objMenuDinamico.innerHTML = xhr.responseText;
+               } else {
+                
+                   alert("Error del servidor. Código de estado: " + xhr.status);
+               }
+           }
+       };
+       
+       
+       xhr.send();
+       
+    }
+    else if (e.target.matches('[tipo="botonAceptarEditarDoctor"]'))
+    {
+        let nombreDoctorEditar=document.querySelector('[admindoctorcampo="nombre"]');
+        let apellidoPDoctorEditar=document.querySelector('[admindoctorcampo="apellidoP"]');
+        let apellidoMDoctorEditar=document.querySelector('[admindoctorcampo="apellidoM"]');
+        let CedulaDoctor=document.querySelector('[admindoctorcampo="cedula"]');
+        let telefonoMDoctorEditar=document.querySelector('[admindoctorcampo="telefonoM"]');
+        let correoDoctorEditar=document.querySelector('[admindoctorcampo="correoE"]');
+        let telefonoODoctorEditar=document.querySelector('[admindoctorcampo="telefonoO"]');
+        let generoDoctorEditar=document.querySelector('[admindoctorcampo="genero"]');
+
+        
+
+        if (nombreDoctorEditar&&apellidoMDoctorEditar&&apellidoPDoctorEditar&&CedulaDoctor&&telefonoMDoctorEditar&&correoDoctorEditar
+            &&telefonoODoctorEditar&&generoDoctorEditar)
+        {
+            let  xhr = new XMLHttpRequest();
+            xhr.open('POST', '../Controllers/Ajax/PanelAdministrador/AdministrarDoctores/ActualizarInformacionDoctor.php', true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4) { 
+                    if (xhr.status === 200) { 
+                        
+                        if (xhr.responseText=="false")
+                        {
+                      alert("No se pudieron actualizar los datos");
+                        }
+                        else if (xhr.responseText!="true")
+                        {
+                            alert("Datos actualizados correctamente");
+                         objMenuDinamico.innerHTML = xhr.responseText;
+                        }
+                        
+                    } else {
+                     
+                        alert("Error del servidor. Código de estado: " + xhr.status);
+                    }
+                }
+            };
+            
+            let data="nombreDoctor="+encodeURIComponent(nombreDoctorEditar.value)+
+            "&apellidoPDoctor="+encodeURIComponent(apellidoPDoctorEditar.value)+
+            "&apellidoMDoctor="+encodeURIComponent(apellidoMDoctorEditar.value)+
+            "&cedulaDoctor="+encodeURIComponent(CedulaDoctor.value)+
+            "&telefonoMDoctor="+encodeURIComponent(telefonoMDoctorEditar.value)+
+            "&correoDoctor="+encodeURIComponent(correoDoctorEditar.value)+
+            "&telefonoEditarDoctor="+encodeURIComponent(telefonoODoctorEditar.value)+
+            "&generoDoctor="+encodeURIComponent(generoDoctorEditar.value);
+
+
+            xhr.send(data);
+        
+         }
+
+        
+     
+    }
+
 });

@@ -368,7 +368,7 @@ color: #666666;
 }
 
 .Administrador_Clinicas_ventanaEditar_div input , .Administrador_Clinicas_ventanaAgregar_div input{
-    width: 50vw;
+    width: 40vw;
     height: 5vh;
     border: none;
     border-bottom: 1px solid black;
@@ -379,7 +379,7 @@ color: #666666;
 
 .contenedorBotonesVentanaEditarClinica,.contenedorBotonesVentanaAgregarClinica{
     width: auto;
-    height: 14vh;
+    height: 12vh;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -563,3 +563,161 @@ transition-duration: .5s;
  color:#666666;    
  font-size: 20px;
 }
+
+/*estilos del apartado de editar doctores*/
+.SubContenedorEditarDoctor1{
+
+    width: auto;
+    height: 50vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.SubContenedorEditarDoctor1_divImg{
+display: flex;
+align-items: center;
+justify-content: center;
+padding: 2vh;
+box-shadow: 1px 1px 5px 1px #666666;
+width: 17vw;
+height: 17vw;
+border-radius: 10px;
+margin-left: 5vw;
+}
+
+.SubContenedorEditarDoctor1_divImg img{
+width: 13vw;
+height: 15vw;
+}
+
+.SubContenedorEditarDoctor1_1{
+   
+    margin-left: 3vw;
+    width: auto;
+    height: 17vw;
+}
+
+.DoctorInput_text{
+    display: flex;
+    flex-direction: column;
+    
+}
+.DoctorInput_text p{
+    font-size: 23px;
+}
+
+.SubContenedorEditarDoctor1_1 .DoctorInput_text input{
+    font-size: 15px;
+    height: 4vh;
+    width: 60vw;
+    margin-bottom: 3vh;
+border: none;
+border-bottom: 1px solid black;
+background-color: transparent;
+}
+
+.SubContenedorEditarDoctor2_1 .DoctorInput_text input{
+    font-size: 15px;
+    height: 4vh;
+    margin-bottom: 3vh;
+border: none;
+border-bottom: 1px solid black;
+background-color: transparent;
+    width: auto;
+}
+.SubContenedorEditarDoctor2{
+    
+    width: auto;
+    height: 34vh;
+    display: flex;
+    flex-direction: row;
+}
+
+.SubContenedorEditarDoctor2_1:nth-child(1){
+
+height: 17vh;
+width: 40vw;
+margin-left: 5vw;
+}
+.SubContenedorEditarDoctor2_1:nth-child(2){
+    
+    height: 17vh;
+    width: 40vw;
+    margin-left: 5vw;
+}
+
+.SubContenedorEditarDoctor2_1_cmbox{
+    display: flex;
+    flex-direction: row;
+    margin-bottom:3vh;
+    margin-top: 4vh;
+
+}
+
+.SubContenedorEditarDoctor2_1_cmbox p{
+    font-size: 23px;
+    margin-right: 3vw;
+}
+
+.SubContenedorEditarDoctor2_1_select{
+    font-size:18px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px 1px #666666;
+}
+
+.DoctorInput_text_input{
+display: flex;
+flex-direction: row;
+}
+
+.DoctorInput_text_input img{
+    width: 2.5vw;
+    height: 2.5vw;
+}
+
+.DoctorInput_text_input input{
+    width:20vw !important;
+}
+
+.SubContenedorEditarDoctor2_1_botones{
+    width:auto;
+    height: 10vh;
+    
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.SubContenedorEditarDoctor2_1_botones button{
+border: none;
+padding: .5vw;
+border-radius: 20px;
+font-size: 15px;   
+color: white; 
+box-shadow: 1px 1px 5px 1px #666666;
+transition-property: transform ;
+transition-duration: .5s;
+}
+.SubContenedorEditarDoctor2_1_botones button:hover{
+transform: scale(1.1);
+}
+
+.SubContenedorEditarDoctor2_1_botones button:active{
+    transform: scale(.8);
+    }
+
+
+
+.SubContenedorEditarDoctor2_1_botones button:nth-child(1)
+{
+margin-right: 3vw;
+background-color:#144621;
+}
+.SubContenedorEditarDoctor2_1_botones button:nth-child(2)
+{
+    margin-left: 3vw;
+    background-color:#730909;
+}
+

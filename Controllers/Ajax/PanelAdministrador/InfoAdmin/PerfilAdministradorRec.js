@@ -254,5 +254,42 @@ objMenuDinamico.innerHTML=`<div class='Administrador_Clinicas_ventanaAgregar'>
 
     }
 
+    else if(objMenuDinamico.getAttribute("TipoMenu")=="Administrar_Doctores")
+    {
+if (e.target.matches("[tipoopciondoctor='Seleccionar']"))
+{
+    let cedulaDoctor=e.target.getAttribute("ceduladoc");
+    if (cedulaDoctor)
+    {
+     let xhr2 = new XMLHttpRequest();
+xhr2.open('POST', '../Controllers/Ajax/PanelAdministrador/AdministrarDoctores/MostrarInfoDoctor.php', true);
+xhr2.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+xhr2.onreadystatechange = function() {
+    if (xhr2.readyState === 4) { 
+        if (xhr2.status === 200) { 
+            
+         objMenuDinamico.innerHTML = xhr2.responseText;
+        } else {
+         
+            alert("Error del servidor. Código de estado: " + xhr2.status);
+        }
+    }
+};
+
+let data="cedulaDoctor="+encodeURIComponent(cedulaDoctor);
+
+xhr2.send(data);    
+    }
+
+
+}
+else if (e.target.matches("[tipoopciondoctor='Agregar']"))
+    {
+    
+
+    }
+
+    }
    
 });

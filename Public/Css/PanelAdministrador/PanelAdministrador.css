@@ -656,14 +656,15 @@ margin-left: 5vw;
 
 .SubContenedorEditarDoctor2_1_cmbox p{
     font-size: 23px;
-    margin-right: 3vw;
 }
 
-.SubContenedorEditarDoctor2_1_select{
-    font-size:18px;
+.SubContenedorEditarDoctor2_1_select,.objcmbClinicas{
+    font-size:16px;
     border: none;
     border-radius: 5px;
     box-shadow: 1px 1px 5px 1px #666666;
+    margin-left: 1vh;
+    margin-right: 1vh;
 }
 
 .DoctorInput_text_input{
@@ -721,4 +722,8 @@ background-color:#144621;
     margin-left: 3vw;
     background-color:#730909;
 }
+
+/*Estilos para agregar un doctor */
+
+
 

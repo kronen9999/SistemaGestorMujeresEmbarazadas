@@ -294,15 +294,15 @@ else if (e.target.matches("[tipoopciondoctor='Agregar']"))
 <div class="SubContenedorEditarDoctor1_1">
 <div class="DoctorInput_text">
 <p>Nombre:</p>
-<input type="text" admindoctorcampo="nombre" placeholder='Ingrese el nombre del doctor(a)'>
+<input type="text" admindoctorcampoAgregar="nombre" placeholder='Ingrese el nombre del doctor(a)'>
 </div>
 <div class="DoctorInput_text">
 <p>Apellido paterno:</p>
-<input type="text" admindoctorcampo="apellidoP" placeholder='Ingrese el apellido paterno del doctor(a)'>
+<input type="text" admindoctorcampoAgregar="apellidoP" placeholder='Ingrese el apellido paterno del doctor(a)'>
 </div>
 <div class="DoctorInput_text">
 <p>Apellido materno:</p>
-<input type="text" admindoctorcampo="apellidoM" placeholder='Ingrese el apellido materno del doctor(a)'>
+<input type="text" admindoctorcampoAgregar="apellidoM" placeholder='Ingrese el apellido materno del doctor(a)'>
 </div>
 </div>
 </div>
@@ -310,15 +310,15 @@ else if (e.target.matches("[tipoopciondoctor='Agregar']"))
 <div class="SubContenedorEditarDoctor2_1">
 <div class="DoctorInput_text">
 <p>Cedula:</p>
-<input type="text" admindoctorcampo="cedula" placeholder='Ingrese la cedula del doctor(a)'>
+<input type="text" admindoctorcampoAgregar="cedula" placeholder='Ingrese la cedula del doctor(a)'>
 </div>
 <div class="DoctorInput_text">
 <p>Telefono movil:</p>
-<input type="text" admindoctorcampo="telefonoM" placeholder='Ingrese el telefono movil del doctor(a)'>
+<input type="text" admindoctorcampoAgregar="telefonoM" placeholder='Ingrese el telefono movil del doctor(a)'>
 </div>
 <div class="DoctorInput_text">
 <p>Correo electronico:</p>
-<input type="text" admindoctorcampo="correoE" placeholder='Ingrese el correo electronico del doctor (a)'>
+<input type="text" admindoctorcampoAgregar="correoE" placeholder='Ingrese el correo electronico del doctor (a)'>
 </div>
 </div>
 
@@ -332,6 +332,8 @@ else if (e.target.matches("[tipoopciondoctor='Agregar']"))
     Femenino
     </option>
 </select>
+<p>Clinica:</p>
+<select class='objcmbClinicas'></select>
 
 </div>
 
@@ -348,12 +350,40 @@ else if (e.target.matches("[tipoopciondoctor='Agregar']"))
 </div>
 </div>
 </div><div class="SubContenedorEditarDoctor2_1_botones">
-<button tipo="botonAceptarEditarDoctor">Guardar cambios</button>
+<button tipo="botonAceptarAgregarDoctor">Guardar cambios</button>
 <button tipo="botonAceptarCancelarDoctor">Cancelar</button>
 </div>
 `;
 
+let selectColocarCmb=document.querySelector("[class='objcmbClinicas']");
+console.log(selectColocarCmb);
+
+let  xhr = new XMLHttpRequest();
+xhr.open('POST', '../Controllers/Ajax/PanelAdministrador/AdministrarDoctores/cmbClinicas.php', true);
+xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+xhr.onreadystatechange = function() {
+    if (xhr.readyState === 4) { 
+        if (xhr.status === 200) { 
+            
+         selectColocarCmb.innerHTML = xhr.responseText;
+       
+        } 
     }
+};
+
+
+xhr.send();
+
+
+
+    }
+
+    if (e.target.matches('[tipo="botonAceptarAgregarDoctor"]'))
+    {
+
+    }
+    
 
     }
 

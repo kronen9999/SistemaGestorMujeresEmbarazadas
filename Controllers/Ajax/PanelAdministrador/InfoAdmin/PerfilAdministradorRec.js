@@ -325,7 +325,7 @@ else if (e.target.matches("[tipoopciondoctor='Agregar']"))
 <div class="SubContenedorEditarDoctor2_1">
 <div class="SubContenedorEditarDoctor2_1_cmbox">
 <p>Genero:</p>
-<select class="SubContenedorEditarDoctor2_1_select" admindoctorcampo="genero"><option value="Masculino" selected>
+<select class="SubContenedorEditarDoctor2_1_select" admindoctorcampoAgregar="genero"><option value="Masculino" selected>
     Masculino
     </option>
     <option value="Femenino" >
@@ -333,18 +333,18 @@ else if (e.target.matches("[tipoopciondoctor='Agregar']"))
     </option>
 </select>
 <p>Clinica:</p>
-<select class='objcmbClinicas'></select>
+<select class='objcmbClinicas' admindoctorcampoAgregar="IdClinica"></select>
 
 </div>
 
 <div class="DoctorInput_text">
 <p>Telefono oficina:</p>
-<input type="text" admindoctorcampo="telefonoO" placeholder='Ingrese el telefono de oficina del doctor (a)'>
+<input type="text" admindoctorcampoAgregar="telefonoO" placeholder='Ingrese el telefono de oficina del doctor (a)'>
 </div>
 <div class="DoctorInput_text">
 <p>Contraseña:</p>
 <div class="DoctorInput_text_input">
-<input type="password" placeholder='Ingrese la contraseña'>
+<input type="password" placeholder='Ingrese la contraseña' admindoctorcampoAgregar="contraseña">
 <img src="../Public/Assets/Icono_Editar.png">
 </div>
 </div>
@@ -356,7 +356,6 @@ else if (e.target.matches("[tipoopciondoctor='Agregar']"))
 `;
 
 let selectColocarCmb=document.querySelector("[class='objcmbClinicas']");
-console.log(selectColocarCmb);
 
 let  xhr = new XMLHttpRequest();
 xhr.open('POST', '../Controllers/Ajax/PanelAdministrador/AdministrarDoctores/cmbClinicas.php', true);
@@ -382,9 +381,54 @@ xhr.send();
     if (e.target.matches('[tipo="botonAceptarAgregarDoctor"]'))
     {
 
-    }
-    
+        let agregarDocNombre=document.querySelector('[admindoctorcampoAgregar="nombre"]');
+        let agregarDocApellidoP=document.querySelector('[admindoctorcampoAgregar="apellidoP"]');
+        let agregarDocApellidoM=document.querySelector('[admindoctorcampoAgregar="apellidoM"]');
+        let agregarDocCedula=document.querySelector('[admindoctorcampoAgregar="cedula"]');
+        let agregarDocTelefonoM=document.querySelector('[admindoctorcampoAgregar="telefonoM"]');
+        let agregarDocCorreoE=document.querySelector('[admindoctorcampoAgregar="correoE"]');
+        let agregarDocGenero=document.querySelector('[admindoctorcampoAgregar="genero"]');
+        let agregarDocClinica=document.querySelector('[admindoctorcampoAgregar="IdClinica"]');
+        let agregarDocTelefonoO=document.querySelector('[admindoctorcampoAgregar="telefonoO"]');
+        let agregarDocContraseña=document.querySelector('[admindoctorcampoAgregar="contraseña"]');
 
+        if (agregarDocNombre&&agregarDocApellidoM&&agregarDocApellidoP&&agregarDocCedula&&agregarDocTelefonoM&&agregarDocCorreoE&&agregarDocGenero
+            &&agregarDocClinica&&agregarDocTelefonoO&&agregarDocContraseña){
+            
+                let  xhr = new XMLHttpRequest();
+                xhr.open('POST', '../Controllers/Ajax/PanelAdministrador/AdministrarDoctores/AdministrarDoctores.php', true);
+                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState === 4) { 
+                        if (xhr.status === 200) { 
+                            
+                            objMenuDinamico.innerHTML = xhr.responseText;
+                        } else {
+                         
+                            alert("Error del servidor. Código de estado: " + xhr.status);
+                        }
+                    }
+                };
+                
+                let data="docNombre="+encodeURIComponent(agregarDocNombre.value)
+                +"&docApellidoP="+encodeURIComponent(agregarDocApellidoP.value)
+                +"&docApellidoM="+encodeURIComponent(agregarDocApellidoM.value)
+                +"&docCedula="+encodeURIComponent(agregarDocCedula.value)
+                +"&docTelefonoM="+encodeURIComponent(agregarDocTelefonoM.value)
+                +"&docCorreo="+encodeURIComponent(agregarDocCorreoE.value)
+                +"&docGenero="+encodeURIComponent(agregarDocGenero.value)
+                +"&docIdClinica="+encodeURIComponent(agregarDocClinica.value)
+                +"&docTelefonoO="+encodeURIComponent(agregarDocTelefonoO.value)
+                +"&docContraseña="+encodeURIComponent(agregarDocContraseña.value);
+                
+                xhr.send(data);
+
+
+
+         }
+    
+        }
     }
 
     if (e.target.matches('[tipo="botonAceptarCancelarDoctor"]'))

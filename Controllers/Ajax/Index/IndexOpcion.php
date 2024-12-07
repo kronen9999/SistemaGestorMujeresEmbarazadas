@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else if ($resultado == "true" && $tipoLogin == "Doctor") {
         echo json_encode([
             'status' => 'success',
-            'message' => 'Se accedió como doctor'
+            'redirect' => '/Integrador7/SistemaGestorMujeresEmbarazadas/Views/PanelMedicos.php'
         ]);
     } else if ($resultado == "true" && $tipoLogin == "Paciente") {
         echo json_encode([

@@ -394,7 +394,15 @@ xhr.send();
 
         if (agregarDocNombre&&agregarDocApellidoM&&agregarDocApellidoP&&agregarDocCedula&&agregarDocTelefonoM&&agregarDocCorreoE&&agregarDocGenero
             &&agregarDocClinica&&agregarDocTelefonoO&&agregarDocContraseña){
-            
+
+                if (agregarDocNombre.value.trim()==""||agregarDocApellidoP.value.trim()==""||agregarDocApellidoM.value.trim()==""
+                ||agregarDocCedula.value.trim()==""||agregarDocTelefonoM.value.trim()==""||agregarDocCorreoE.value.trim()==""
+                ||agregarDocGenero.value.trim()==""||agregarDocClinica.value.trim()==""||agregarDocTelefonoO.value.trim()==""
+                ||agregarDocContraseña.value.trim()=="")
+                {
+                    alert("Debe ingresar todos los datos para poder agregar un doctor");
+                }
+            else {
                 let  xhr = new XMLHttpRequest();
                 xhr.open('POST', '../Controllers/Ajax/PanelAdministrador/AdministrarDoctores/AgregarDoctor.php', true);
                 xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
@@ -402,8 +410,16 @@ xhr.send();
                 xhr.onreadystatechange = function() {
                     if (xhr.readyState === 4) { 
                         if (xhr.status === 200) { 
+                            if (xhr.responseText=="false")
+                            {
+                                alert("No se pudo agregar el doctor por favor rellene todos los campos");
+                            }
+                            else {
+                                alert("Doctor agregado con exito");
+                                objMenuDinamico.innerHTML = xhr.responseText;
+                            }
+
                             
-                            objMenuDinamico.innerHTML = xhr.responseText;
                         } else {
                          
                             alert("Error del servidor. Código de estado: " + xhr.status);
@@ -424,6 +440,8 @@ xhr.send();
                 
                 xhr.send(data);
 
+            }
+                
 
 
          }

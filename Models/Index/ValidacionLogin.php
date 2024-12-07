@@ -24,8 +24,11 @@
             
             $resultado = $consultaValidacion->get_result();
 
-            
+            if ($tipoLogin=="Administrador")
+           {
             if ($resultado->num_rows > 0) {
+           
+
                 $filaConsulta=$resultado->fetch_assoc();
         session_start();
         $_SESSION["IdResponsable"]=$filaConsulta["IdResponsable"];
@@ -35,6 +38,38 @@
                 
                 return "false";
             }
+           }
+           else if ($tipoLogin=="Doctor")
+           {
+            if ($resultado->num_rows > 0) {
+           
+
+                $filaConsulta=$resultado->fetch_assoc();
+        session_start();
+        $_SESSION["Cedula"]=$filaConsulta["Cedula"];
+        session_write_close();
+             return "true";
+            } else {
+                
+                return "false";
+            }
+           }
+          else  if ($tipoLogin=="Paciente")
+           {
+            if ($resultado->num_rows > 0) {
+           
+
+                $filaConsulta=$resultado->fetch_assoc();
+        session_start();
+        $_SESSION["CurpPaciente"]=$filaConsulta["CurpPaciente"];
+        session_write_close();
+             return "true";
+            } else {
+                
+                return "false";
+            }
+           }
+            
         } else {
             
         return "false";

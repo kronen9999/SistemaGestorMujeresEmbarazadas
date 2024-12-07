@@ -396,7 +396,7 @@ xhr.send();
             &&agregarDocClinica&&agregarDocTelefonoO&&agregarDocContraseña){
             
                 let  xhr = new XMLHttpRequest();
-                xhr.open('POST', '../Controllers/Ajax/PanelAdministrador/AdministrarDoctores/AdministrarDoctores.php', true);
+                xhr.open('POST', '../Controllers/Ajax/PanelAdministrador/AdministrarDoctores/AgregarDoctor.php', true);
                 xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
                 
                 xhr.onreadystatechange = function() {

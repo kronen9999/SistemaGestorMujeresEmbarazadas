@@ -1,0 +1,259 @@
+
+*{
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.cabezera
+{
+    position: sticky;
+    width: 94vw;
+    height: 15vh;
+    background-color: #008CC2;
+    box-shadow: 0px 1px 5px 1px #666666;
+    left: 10vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+
+.cabezera img{
+    width: 100px;
+    height: 100px;
+    margin-right: 3vw;
+  filter: drop-shadow(0px 1px 5px #666666);
+}
+.cabezera p{
+    font-size: 40px;
+    color: white;
+    text-shadow: 0px 1px 2px #666666;
+    margin-left:5vw;
+}
+.menuLateral{
+    position:absolute;
+    width: 7vw;
+    height: 99.999vh;
+    background-color: #008bbd;
+    z-index: 200;
+    transform:translate(0,0);
+    bottom:.001vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+
+
+.Menu_Dinamico
+{
+   background-color: transparent;
+   position: absolute;
+   width:92.8vw;
+   height: 84.69vh; 
+   z-index: 300;
+   transform: translate(7vw,0);
+   overflow-x: auto;
+}
+
+.botonMenu{
+    
+    background-color:  #00a5e1;
+    border-radius: 10px;
+    padding: 5px;
+    box-shadow: 0px 2px 5px .1px rgb(37, 36, 36);
+    transition-property: transform;
+    transition-duration: .5s;
+    
+}
+
+.botonMenu:hover{
+    transform: scale(1.1);
+}
+
+[alt="IconoApartado"]
+{
+    width: 45px;
+    height: 45px;
+    filter:drop-shadow(0px 1px 1px black);
+    
+    
+}
+
+[botonSeleccionado="true"]
+{
+background-color: #005777;
+}
+
+
+/* Estilos de menu principal*/
+
+#calendario {
+    width: 600px; /* Cambiar el ancho del calendario */
+    margin: 20px auto; /* Centrar */
+}
+
+/* Cambiar tamaño de fuente en el calendario */
+.flatpickr-calendar {
+    font-size: 16px; /* Ajustar tamaño de fuente */
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Cambiar tamaño de los días del calendario */
+.flatpickr-day {
+    height: 40px; /* Altura de cada celda */
+    width: 40px; /* Ancho de cada celda */
+    line-height: 40px; /* Centrado vertical */
+}
+
+/* Opcional: Ajustar el estilo de los días seleccionados */
+.flatpickr-day.selected {
+    background-color: #007BFF; /* Color de fondo */
+    color: white; /* Color de texto */
+    border-radius: 50%; /* Forma circular */
+}
+.flatpickr-calendar.inline{
+    box-shadow: 1px 1px 2px 2px #666666;
+    transition: transform;
+    transition-duration: .5s;
+}
+
+.flatpickr-calendar.inline:hover{
+   transform: scale(1.1);
+}
+
+.Menu_Dinamico_Doctores_PanelPrincipal_SubApartado1
+{
+    width: auto;
+    height: 50vh;
+    display: flex;
+    flex-direction: row;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+}
+
+#Calendario{
+    margin-right: 5vw;
+}
+
+.Menu_Dinamico_Doctores_PanelPrincipal_SubApartado1_Subapartado1{
+
+  width:90%;
+  height: auto;
+  margin-left: 5vw;
+  margin-right: 5vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.Menu_Dinamico_Doctores_PanelPrincipal_SubApartado1_Subapartado1_ContenedorInfo
+{
+    width: 95%;
+    height: 20vh;
+    margin-right:1vw;
+    margin-left: 1vw;
+    border-radius: 20px ;
+    box-shadow: 1px 1px 2px 2px #666666;
+}
+
+.Menu_Dinamico_Doctores_PanelPrincipal_SubApartado1_Subapartado1_ContenedorInfo:nth-child(1){
+    background-color: white;
+    margin-bottom: 5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.Menu_Dinamico_Doctores_PanelPrincipal_SubApartado1_Subapartado1_ContenedorInfo:nth-child(2){
+    margin-bottom: 5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.Menu_Dinamico_Doctores_PanelPrincipal_SubApartado1_Subapartado1_ContenedorInfo:nth-child(2) p{
+    font-size: 20px;
+    margin: .5vh;
+}
+
+.Menu_Dinamico_Doctores_PanelPrincipal_SubApartado1_Subapartado1_ContenedorInfo:nth-child(1) p{
+    font-size: 20px;
+    margin: .5vh;
+}
+
+.Menu_Dinamico_Doctores_PanelPrincipal_SubApartado1_Subapartado1_ContenedorInfo:nth-child(1) button{
+    width: 15vw;
+    background-color: #008CC2;
+    font-size: 18px;
+    border: none;
+    border-radius: 20px;
+margin-top: 1vh;
+transition: transform;
+transition-duration: .5s;
+}
+
+.Menu_Dinamico_Doctores_PanelPrincipal_SubApartado1_Subapartado1_ContenedorInfo:nth-child(1) button:hover{
+    transform: scale(1.1);
+}
+.Menu_Dinamico_Doctores_PanelPrincipal_SubApartado1_Subapartado1_ContenedorInfo:nth-child(1) button:active{
+    transform: scale(.8);
+}
+
+.Menu_Dinamico_Doctores_PanelPrincipal_SubApartado2{
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    height: 40vh;
+    margin:  auto;
+    border-radius: 20px;
+    border: none;
+    box-shadow: 1px 1px 2px 2px #666666;
+    margin-bottom: 5vh;
+    overflow-x: auto;
+   align-items: center;
+    
+
+}
+
+.Menu_Dinamico_Doctores_PanelPrincipal_SubApartado2_PacienteContenedor{
+min-width: 17vw;
+min-height: 35vh;
+width: 17vw;
+height:35vh;
+margin: 0px 5vw;
+border-radius: 20px;
+box-shadow: 1px 1px 2px 2px #666666;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+}
+
+.Menu_Dinamico_Doctores_PanelPrincipal_SubApartado2_PacienteContenedor img{
+    width: 7vw;
+    height: 7vw;
+    margin-bottom: 2vh;
+}
+.Menu_Dinamico_Doctores_PanelPrincipal_SubApartado2_PacienteContenedor p:nth-child(3){
+    margin-bottom: 1vh;
+}
+
+.Menu_Dinamico_Doctores_PanelPrincipal_SubApartado2_PacienteContenedor p:nth-child(2),.Menu_Dinamico_Doctores_PanelPrincipal_SubApartado2_PacienteContenedor p:nth-child(4){
+    color: blue;
+}
+
+.MensajeNoCitas{
+    margin: auto auto;
+    font-size: 25px;
+    color: #666666;
+}
+

@@ -10,7 +10,65 @@
     <link rel="stylesheet" href="../Public/Css/PanelDoctores/Doctores.css">
 </head>
 <body>    
-    
+<header class="cabezera">
+            <p Apartado="titulo">Panel Principal</p>
+            <img src="../Public/Assets/Administrador_InformacionPerfil_Icono.png" alt="Icono_Administrador">
+        </header>
+        <div class="menuLateral">
+        <div class="botonMenu" botonSeleccionado="true" opcionMenu="botonHome">
+        <img src="../Public/Assets/IconoHome.png" alt="IconoApartado">
+        </div>
+        <div class="botonMenu" botonSeleccionado="false" opcionMenu="botonPerfil">
+        <img src="../Public/Assets/Icono_Administrador_Perfil.png" alt="IconoApartado">
+        </div>
+        <a href="../index.php">
+          <div class="botonMenu" botonSeleccionado="false" >
+        <img src="../Public/Assets/Icono_CerrarSesion.png" alt="IconoApartado" botonSeleccionado="false">
+        </div>
+        </a>
+        </div>
+        <div class="Menu_Dinamico" TipoMenu="Doctores_PanelPrincipal">
+    <script>
+       let xhr = new XMLHttpRequest();
+        xhr.open("POST", "../Controllers/Ajax/PanelDoctores/MostrarPanelDoctor.php", true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200) {
+                  divMenuDinamico=document.querySelector(".Menu_Dinamico");
+                    divMenuDinamico.innerHTML = xhr.responseText;
+
+                    
+                    flatpickr("#Calendario", {
+                        inline: true,
+                        dateFormat: "Y-m-d",
+                        locale: "es",
+                        onChange: function (selectedDates, dateStr) {
+                            alert("Seleccionaste la fecha: " + dateStr);
+                            divMenuDinamico.innerHTML=`se modifico con fecha`;
+                        },
+                    });
+                } else {
+                    alert("Error del servidor. Código de estado: " + xhr.status);
+                }
+            }
+        };
+
+        xhr.send();
+    </script>
+
+<script>flatpickr("#Calendario", {
+                        inline: true,
+                        dateFormat: "Y-m-d",
+                        locale: "es",
+                        onChange: function (selectedDates, dateStr) {
+                            alert("Seleccionaste la fecha: " + dateStr);
+                        },
+                    }</script>
+        
+        </div>
+        <script src="../Controllers/Ajax/PanelDoctores/MenuLateral.js" defer></script>
 </body>
 </html>
 

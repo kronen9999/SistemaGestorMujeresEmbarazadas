@@ -23,17 +23,17 @@ class Doctor_MostrarPacientes{
 
         if ($riesgo=="Sin registro")
         {
-        $htmlAgregar.="<div class='Doctores_AdministrarPacientes_2_Paciente' tipodiv='Doctores_Paciente' Estado='Sin registro'>";
+        $htmlAgregar.="<div class='Doctores_AdministrarPacientes_2_Paciente' tipodiv='Doctores_Paciente' Estado='Sin registro' Paciente='$Curp'>";
         }
         
        else  if ($riesgo=="Sin riesgo")
         {
-        $htmlAgregar.="<div class='Doctores_AdministrarPacientes_2_Paciente' tipodiv='Doctores_Paciente' Estado='Sin riesgo'>";
+        $htmlAgregar.="<div class='Doctores_AdministrarPacientes_2_Paciente' tipodiv='Doctores_Paciente' Estado='Sin riesgo' Paciente='$Curp'>";
         }
         
        else  if ($riesgo=="En riesgo")
         {
-        $htmlAgregar.="<div class='Doctores_AdministrarPacientes_2_Paciente' tipodiv='Doctores_Paciente' Estado='En riesgo'>";
+        $htmlAgregar.="<div class='Doctores_AdministrarPacientes_2_Paciente' tipodiv='Doctores_Paciente' Estado='En riesgo' Paciente='$Curp'>";
         }
         $htmlAgregar.=" <img src='../Public/Assets/Icono_Administrador_Paciente.png' alt='imgPaciente'>
     <div class='Doctores_AdministrarPacientes_2_Paciente_SubApartado'>

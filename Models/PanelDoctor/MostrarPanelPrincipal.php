@@ -57,10 +57,10 @@ class PanelPrincipalDoctor
         <div class='Menu_Dinamico_Doctores_PanelPrincipal_SubApartado1_Subapartado1_ContenedorInfo'>
         <p>Sus pacientes registrados</p>
         <p numPacientes='Doctor'>$numPacientes</p>
-        <button class='Menu_Dinamico_Doctores_PanelPrincipal_SubApartado1_Subapartado1_ContenedorInfo_AdministrarPacientes'>Administrar Pacientes</button>
+        <button class='Menu_Dinamico_Doctores_PanelPrincipal_SubApartado1_Subapartado1_ContenedorInfo_AdministrarPacientes' bottonTipo='DoctoresAdministrarPacientes'>Administrar Pacientes</button>
         </div>
         <div class='Menu_Dinamico_Doctores_PanelPrincipal_SubApartado1_Subapartado1_ContenedorInfo'>
-               <p>Total de citas programadas del dia de hoy:</p>
+               <p>Total de citas programadas del dia de hoy $fechaHoy:</p>
                <p>$numCitas</p>
         </div>
         </div >

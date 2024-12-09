@@ -46,7 +46,6 @@
                         locale: "es",
                         onChange: function (selectedDates, dateStr) {
                             alert("Seleccionaste la fecha: " + dateStr);
-                            divMenuDinamico.innerHTML=`se modifico con fecha`;
                         },
                     });
                 } else {
@@ -65,10 +64,11 @@
                         onChange: function (selectedDates, dateStr) {
                             alert("Seleccionaste la fecha: " + dateStr);
                         },
-                    }</script>
+                    })</script>
         
         </div>
         <script src="../Controllers/Ajax/PanelDoctores/MenuLateral.js" defer></script>
+        <script src="../Controllers/Ajax/PanelDoctores/PanelDoctores_Eventos.js"></script>
 </body>
 </html>
 

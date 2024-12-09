@@ -9,6 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
     session_write_close();
 
 $objMostrar= new  PanelPrincipalDoctor();
+date_default_timezone_set('America/Mexico_City');
 $fechaHoy = date('Y-m-d');
 
 

@@ -255,3 +255,154 @@ justify-content: center;
     color: #666666;
 }
 
+/*Estilos de Doctores_AdministrarPacientes*/
+
+.Doctores_AdministrarPacientes_1{
+    margin-top: 5vh;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    height: 15vh;
+    box-shadow: 1px 1px 2px 2px #666666;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.Doctores_AdministrarPacientes_1 p:nth-child(1){
+font-size: 25px;
+margin-left: 1vw !important;
+margin-right: 5vw;
+}
+
+.Doctores_AdministrarPacientes_1 p{
+    
+    margin-right:2vw;
+    }
+.Doctores_AdcministrarPacientes_1_InputBusqueda img
+{
+    width: 2vw;
+    height: 2vw;
+    margin-right: 1vw;
+    margin-left: 1vw;
+}
+
+.Doctores_AdministrarPacientes_1_Acotacion{
+    width: 3vw;
+    height: 2vw;
+    border: 1px groove black;
+}
+
+.Doctores_AdministrarPacientes_1_Acotacion:nth-child(2)
+{
+    background-color: white;
+}
+.Doctores_AdministrarPacientes_1_Acotacion:nth-child(4)
+{
+    background-color: rgb(118, 201, 121);
+}
+.Doctores_AdministrarPacientes_1_Acotacion:nth-child(6)
+{
+    background-color: rgb(200, 113, 113);
+}
+
+.Doctores_AdcministrarPacientes_1_InputBusqueda{
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    box-shadow: 1px 1px 2px 2px #666666;
+    border-radius: 15px;
+    
+
+}
+
+.Doctores_AdministrarPacientes_1_inputtext{
+     height: 5vh;
+     font-size: 18px;
+    border: none;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+.Doctores_AdministrarPacientes_2{
+    margin-top: 1vh;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    height: 60vh;
+    box-shadow: 1px 1px 2px 2px #666666;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Doctores_AdministrarPacientes_2_AgregarPaciente{
+    display: flex;
+    flex-direction: row;
+width:95%;
+align-items: center;
+margin: 1vh;
+box-shadow: 1px 1px 2px 2px #666666;
+border-radius: 10px;
+}
+
+.Doctores_AdministrarPacientes_2_AgregarPaciente img{
+    width: 5vw;
+    height: 5vw;
+    margin-left:2vw;
+    margin-right: 2vw;
+}
+
+.Doctores_AdministrarPacientes_2_AgregarPaciente p{
+    font-size: 25px;
+    color: #666666;
+}
+
+.Doctores_AdministrarPacientes_2_Paciente{
+    display: flex;
+    flex-direction: row;
+width:95%;
+align-items: center;
+margin: 1vh;
+box-shadow: 1px 1px 2px 2px #666666;
+border-radius: 10px;
+}
+
+.Doctores_AdministrarPacientes_2_Paciente img{
+    width: 5vw;
+    height: 5vw;
+    margin-left:2vw;
+    margin-right: 2vw;
+    filter:drop-shadow(1px 1px 2px black);
+}
+
+[Estado='Sin registro']
+{
+    background-color: transparent;
+}
+[Estado='Sin riesgo']
+{
+    background-color: rgb(118, 201, 121);
+}
+[Estado='En riesgo']
+{
+    background-color: rgb(200, 113, 113);
+}
+.Doctores_AdministrarPacientes_2_Paciente_SubApartado{
+    display: flex;
+    flex-direction: column;
+    width: 11vw;
+    margin-left: 3vw;
+}
+
+.Doctores_AdministrarPacientes_2_Paciente_SubApartado p{
+margin: 1vh;
+}
+.Doctores_AdministrarPacientes_2_Paciente_SubApartado p:nth-child(1){
+    color: blue;
+
+}

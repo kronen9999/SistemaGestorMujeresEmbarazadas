@@ -13,7 +13,7 @@ if (e.target.matches('[bottontipo="DoctoresAdministrarPacientes"]'))
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4) { 
             if (xhr.status === 200) { 
-                
+            objmenuDinamico.setAttribute("TipoMenu","Doctores_PanelPrincipal_Pacientes");
              objmenuDinamico.innerHTML = xhr.responseText;
             } else {
              

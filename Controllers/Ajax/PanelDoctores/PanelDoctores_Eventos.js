@@ -1,3 +1,4 @@
+
 document.addEventListener("click",function (e)
 {
 objmenuDinamico=document.querySelector('[class="Menu_Dinamico"]');
@@ -99,7 +100,31 @@ if (e.target.matches('[tipodiv="Doctores_AgregarPaciente"]'))
 
 
 }
-
+if (e.target.matches('[tipodiv="Doctores_Paciente"]'))
+{
+    
+    objmenuDinamico.setAttribute("TipoMenu","Doctores_Paciente_AdministrarPaciente");
+    let xhr = new XMLHttpRequest();
+        xhr.open('POST', '../Controllers/Ajax/PanelDoctores/Doctores_Pacientes/MuestraMenuOpciones.php', true);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4) { 
+                if (xhr.status === 200) { 
+                    objmenuDinamico.setAttribute("TipoMenu","Doctores_Paciente_AdministrarPaciente");
+                 objmenuDinamico.innerHTML = xhr.responseText;
+                } else {
+                 
+                    alert("Error del servidor. Código de estado: " + xhr.status);
+                }
+            }
+        };
+        
+        let data ="curpPaciente="+encodeURIComponent(e.target.getAttribute("paciente"));
+        
+        xhr.send(data); 
+    
+}
 
 if (e.target.matches("[botontipo='AgregarPaciente']")){
     let curpPaciente =document.querySelector("[id='AgregarPacienteCurp']");

@@ -538,3 +538,9 @@ justify-content: center;
 [opcion='EditarPaciente'] img{
     margin-top: 4vh;
 }
+
+[desc='Doctores_EditarP_IconoP']
+{
+width:10vw;
+height: 10vw;
+}

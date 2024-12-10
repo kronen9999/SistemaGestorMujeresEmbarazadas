@@ -226,6 +226,42 @@ if (e.target.matches("[botontipo='AgregarPaciente']")){
 
 }
 
+if (objmenuDinamico.getAttribute("TipoMenu")=="Doctores_Paciente_AdministrarPaciente"){
+    
+if (e.target.matches("[opcion='EditarPaciente']"))
+{
+    let pCurp=document.querySelector('[curpid_titulop]');
+    let xhr = new XMLHttpRequest();
+    xhr.open('POST', '../Controllers/Ajax/PanelDoctores/Doctores_AdministrarPacientes/MostrarApartadoActualizar.php', true);
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4) { 
+            if (xhr.status === 200) { 
+             objmenuDinamico.innerHTML = xhr.responseText;
+            } else {
+             
+                alert("Error del servidor. Código de estado: " + xhr.status);
+            }
+        }
+    };
+    
+    
+    xhr.send("curpPaciente="+encodeURIComponent(pCurp.getAttribute("curpid_titulop"))); 
+}
+else if (e.target.matches("[opcion='VerCitas']"))
+{
+   
+}
+else if (e.target.matches("[opcion='VerRecetas']"))
+{
+    
+}
+
+}
+
+
+
 
 
 });

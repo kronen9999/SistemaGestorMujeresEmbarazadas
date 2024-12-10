@@ -258,6 +258,35 @@ else if (e.target.matches("[opcion='VerRecetas']"))
     
 }
 
+if (e.target.matches("[botontipo='GuardarCambiosPaciente']"))
+{
+
+}
+else if (e.target.matches("[botontipo='CancelarCambiosPaciente']"))
+{
+    let pCurp=document.querySelector("[valorCurp]");
+    let xhr = new XMLHttpRequest();
+        xhr.open('POST', '../Controllers/Ajax/PanelDoctores/Doctores_Pacientes/MuestraMenuOpciones.php', true);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4) { 
+                if (xhr.status === 200) { 
+                    objmenuDinamico.setAttribute("TipoMenu","Doctores_Paciente_AdministrarPaciente");
+                 objmenuDinamico.innerHTML = xhr.responseText;
+                } else {
+                 
+                    alert("Error del servidor. Código de estado: " + xhr.status);
+                }
+            }
+        };
+        
+        let data ="curpPaciente="+encodeURIComponent(pCurp.getAttribute("valorCurp"));
+        
+        xhr.send(data); 
+    
+}
+
 }
 
 

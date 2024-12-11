@@ -1,7 +1,7 @@
 <?php
 include("../../../../config.php");
-include("../../../../Models/PanelDoctor/AgregarPacientes.php");
-include("../../../../Models/PanelDoctor/MostrarPacientes.php");
+include("../../../../Models/PanelDoctor/ActualizarPaciente.php");
+include("../../../../Models/PanelDoctor/MuestraMenuPacientes.php");
  
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST')
@@ -20,21 +20,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
     $fechaUMP=$_POST["fechaUmPaciente"];
     $ocupacionP=$_POST["ocupacionPaciente"];
     $direccionP=$_POST["direccionPaciente"];
-    $contraseñaP=$_POST["contraseñaPaciente"];
-      $objAgregar=new Doctores_Agregar_Paciente();
 
-      $resultadoConsultaAgregar=$objAgregar->AgregarPacientes($conexiondb,$curpP,$nombreP,$apellidoPP
-    ,$apellidoMP,$fechaNP,$contraseñaP,$correoP,$telefonoP,$tipoSP,$fechaUMP,$ocupacionP,
-$direccionP,"Sin registro",$idCedula);
+      
+    $objActualizarPaciente=new Doctores_Actualizar_Paciente();
 
-if ($resultadoConsultaAgregar==false)
+    $resultadoConsultaModificar=$objActualizarPaciente->ActualizarPaciente($conexiondb,$curpP,$nombreP,$apellidoPP
+,$apellidoMP,$fechaNP,$correoP,$telefonoP,$tipoSP,$fechaUMP,$ocupacionP,$direccionP);
+
+if ($resultadoConsultaModificar==false)
 {
 echo "false";
 }
 else  {
-$objHtmlMostrar= new Doctor_MostrarPacientes();
+$objHtmlMostrar= new MuestraMenuPacientes();
 
-echo $objHtmlMostrar->doctorRecuperarpacientes($conexiondb,$idCedula);
+echo $objHtmlMostrar->recuperarMenu($conexiondb,$curpP,$idCedula);
 }
 
 }

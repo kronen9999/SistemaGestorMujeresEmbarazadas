@@ -251,7 +251,17 @@ if (e.target.matches("[opcion='EditarPaciente']"))
 }
 else if (e.target.matches("[opcion='VerCitas']"))
 {
-   
+    objmenuDinamico.innerHTML =`
+    <p titulo='Doctor_PacienteCitasRegistradas'>Citas registradas</p>
+    <p titulo='Doctor_PacienteExpedienteCitas'>Expediente de la cita>
+    <div class='Doctor_ContenedorCitas_Paciente'>
+     <div class='Doctor_ContenedorCitas_Paciente_1'>
+         
+    </div>
+    <div class='Doctor_ContenedorCitas_Paciente_2'>
+         
+    </div>
+    </div>`;
 }
 else if (e.target.matches("[opcion='VerRecetas']"))
 {
@@ -260,6 +270,68 @@ else if (e.target.matches("[opcion='VerRecetas']"))
 
 if (e.target.matches("[botontipo='GuardarCambiosPaciente']"))
 {
+let nombrePaciente =document.querySelector("[id='ActualizarPacienteNombre']");
+let apellidoPPaciente =document.querySelector("[id='ActualizarPacienteApellidoP']");
+let apellidoMPaciente =document.querySelector("[id='ActualizarPacienteApellidoM']");
+let fechaNPaciente =document.querySelector("[id='ActualizarPacienteFechaN']");
+let correoPaciente =document.querySelector("[id='ActualizarPacienteCorreo']");
+let telefonoPaciente =document.querySelector("[id='ActualizarPacienteTelefono']");
+let tipoSangrePaciente =document.querySelector("[id='ActualizarPacienteTipoSangre']");
+let fechaUmPaciente =document.querySelector("[id='ActualizarPacienteFechaUM']");
+let ocupacionPaciente =document.querySelector("[id='ActualizarPacienteOcupacion']");
+let direccionPaciente =document.querySelector("[id='ActualizarPacienteDireccion']");
+
+if (nombrePaciente.value.trim()==""||apellidoMPaciente.value.trim()==""||
+apellidoPPaciente.value.trim()==""||fechaNPaciente.value.trim()==""||correoPaciente.value.trim()==""||
+telefonoPaciente.value.trim()==""||tipoSangrePaciente.value.trim()==""||fechaUmPaciente.value.trim()==""||
+ocupacionPaciente.value.trim()==""||direccionPaciente.value.trim()=="")
+    {
+        alert("No deje ningun campo vacio al actualizar los datos ")
+    }
+    else {
+        let xhr = new XMLHttpRequest();
+                    xhr.open('POST', '../Controllers/Ajax/PanelDoctores/Doctores_Pacientes/ActualizarPaciente.php', true);
+                    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                    
+                    xhr.onreadystatechange = function() {
+                        if (xhr.readyState === 4) { 
+                            if (xhr.status === 200) { 
+                                if (xhr.responseText=="false")
+                                {
+                                    alert("Verifique los campos y vuelva a intentarlo");
+                                }
+                                else
+                                {
+                                    alert("Datos Actualizados correctamente");
+                                    objmenuDinamico.setAttribute("TipoMenu","Doctores_Paciente_AdministrarPaciente");
+                                    objmenuDinamico.innerHTML = xhr.responseText;
+                                }
+                            
+                             
+                            } else {
+                             
+                                alert("Error del servidor. Código de estado: " + xhr.status);
+                            }
+                        }
+                    };
+                    
+                    data="curpPaciente="+encodeURIComponent(document.querySelector('[valorCurp]').getAttribute("valorCurp"))
+                    +"&nombrePaciente="+encodeURIComponent(nombrePaciente.value)
+                    +"&apellidoPPaciente="+encodeURIComponent(apellidoPPaciente.value)
+                    +"&apellidoMPaciente="+encodeURIComponent(apellidoMPaciente.value)
+                    +"&fechaNPaciente="+encodeURIComponent(fechaNPaciente.value)
+                    +"&correoPaciente="+encodeURIComponent(correoPaciente.value)
+                    +"&telefonoPaciente="+encodeURIComponent(telefonoPaciente.value)
+                    +"&tipoSangrePaciente="+encodeURIComponent(tipoSangrePaciente.value)
+                    +"&fechaUmPaciente="+encodeURIComponent(fechaUmPaciente.value)
+                    +"&ocupacionPaciente="+encodeURIComponent(ocupacionPaciente.value)
+                    +"&direccionPaciente="+encodeURIComponent(direccionPaciente.value);
+                    
+                    
+                    xhr.send(data); 
+
+    }
+
 
 }
 else if (e.target.matches("[botontipo='CancelarCambiosPaciente']"))

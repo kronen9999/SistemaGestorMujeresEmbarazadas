@@ -252,22 +252,6 @@ if (e.target.matches("[opcion='EditarPaciente']"))
 else if (e.target.matches("[opcion='VerCitas']"))
 {
     let pCurp=document.querySelector('[curpid_titulop]');
-    /*
-    objmenuDinamico.innerHTML =`
-    <p titulo='Doctor_PacienteCitasRegistradas'>Citas registradas</p>
-    <p titulo='Doctor_PacienteExpedienteCitas'>Expediente de la cita</p>
-    <div class='Doctor_ContenedorCitas_Paciente'>
-     <div class='Doctor_ContenedorCitas_Paciente_SelectorCitas'>
-         <div class='Doctor_ContenedorCitas_Paciente_SelectorCitas_Cita' selectorCitaId='2'>
-         <p idCitaSelector>idCita:2</p>
-         <p>Fecha:2024-05-09  Hora:10:00</p>
-         </div>
-                    
-    </div>
-    <div class='Doctor_ContenedorCitas_Paciente_InformacionExpediente'>    
-    </div>
-    </div>`;*/
-   
     let xhr = new XMLHttpRequest();
     xhr.open('POST', '../Controllers/Ajax/PanelDoctores/Doctores_AdministrarPacientes/MostrarCitasPacientes.php', true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
@@ -294,51 +278,30 @@ else if (e.target.matches("[opcion='VerRecetas']"))
 
 if (e.target.matches("[selectorCitaId]"))
 {
+    
 let idCita=e.target.getAttribute("selectorCitaId");
-
+alert(idCita);
 let infoCitaExpediente=document.querySelector("[class='Doctor_ContenedorCitas_Paciente_InformacionExpediente']");
-infoCitaExpediente.innerHTML=`<p class='Doctor_ContenedorCitas_Paciente_InformacionExpediente_IdExpediente'>Id del expendiente:${idCita}</p>
-<div class='Doctor_ContenedorCitas_Paciente_InformacionExpediente_SubApartado1'>
-<div class='Doctor_ContenedorCitas_Paciente_InformacionExpediente_SubApartado1_contenedorInfo'>
-<p p1=''>Peso materno:</p>
-<p p2=''>89kg</p>
-</div>
-<div class='Doctor_ContenedorCitas_Paciente_InformacionExpediente_SubApartado1_contenedorInfo'>
-<p p1=''>Presion arterial:</p>
-<p p2=''>120-80</p>
-</div>
-</div>
-<div class='Doctor_ContenedorCitas_Paciente_InformacionExpediente_SubApartado1'>
-<div class='Doctor_ContenedorCitas_Paciente_InformacionExpediente_SubApartado1_contenedorInfo'>
-<p p1=''>Frecuencia cardiaca fetal:</p>
-<p p2=''>57</p>
-</div>
-<div class='Doctor_ContenedorCitas_Paciente_InformacionExpediente_SubApartado1_contenedorInfo'>
-<p p1=''>Altura uterina:</p>
-<p p2=''>28 cm</p>
-</div>
-</div>
-<div class='Doctor_ContenedorCitas_Paciente_InformacionExpediente_SubApartado1'>
-<div class='Doctor_ContenedorCitas_Paciente_InformacionExpediente_SubApartado1_contenedorInfo'>
-<p p1=''>Movimientos fetales:</p>
-<p p2=''>Movimientos normales</p>
-</div>
-<div class='Doctor_ContenedorCitas_Paciente_InformacionExpediente_SubApartado1_contenedorInfo'>
-<p p1=''>Pocision fetal:</p>
-<p p2=''>Horizontal</p>
-</div>
-</div>
-<div class='Doctor_ContenedorCitas_Paciente_InformacionExpediente_SubApartado1'>
-<div class='Doctor_ContenedorCitas_Paciente_InformacionExpediente_SubApartado1_contenedorInfo'>
-<p p1=''>Evaluacion de edemas:</p>
-<p p2=''>No se detectaron anomalias</p>
-</div>
-<div class='Doctor_ContenedorCitas_Paciente_InformacionExpediente_SubApartado1_contenedorInfo'>
-<p p1=''>Factor de riesgo:</p>
-<p p2=''>Sin riesgo</p>
-</div>
-</div>
-`;
+let xhr = new XMLHttpRequest();
+xhr.open('POST', '../Controllers/Ajax/PanelDoctores/Doctores_AdministrarPacientes/PacienteMostrarExpedienteCita.php', true);
+xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+xhr.onreadystatechange = function() {
+    if (xhr.readyState === 4) { 
+        if (xhr.status === 200) { 
+            infoCitaExpediente.innerHTML=xhr.responseText;
+        } else {
+         
+            alert("Error del servidor. Código de estado: " + xhr.status);
+        }
+    }
+};
+
+let data ="idCita="+encodeURIComponent(idCita);
+
+xhr.send(data); 
+
+
 
 
 

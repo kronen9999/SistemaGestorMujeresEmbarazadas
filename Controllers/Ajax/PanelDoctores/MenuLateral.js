@@ -63,7 +63,26 @@ opcionMenuHome.addEventListener("click", function (e) {
                         dateFormat: "Y-m-d",
                         locale: "es",
                         onChange: function (selectedDates, dateStr) {
-                            alert("Seleccionaste la fecha: " + dateStr);
+                            
+    let xhr2 = new XMLHttpRequest();
+    xhr2.open('POST', '../Controllers/Ajax/PanelDoctores/Doctores_AdministrarCitas/MostrarCitas.php', true);
+    xhr2.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    
+    xhr2.onreadystatechange = function() {
+        if (xhr.readyState === 4) { 
+            if (xhr.status === 200) { 
+            objmenuDinamico.setAttribute("TipoMenu","Doctores_PanelPrincipal_Pacientes");
+             objmenuDinamico.innerHTML = xhr2.responseText;
+
+            } else {
+             
+                alert("Error del servidor. Código de estado: " + xhr2.status);
+            }
+        }
+    };
+    
+    
+    xhr2.send("fecha="+encodeURIComponent(dateStr)); 
                         },
                     });
                 } else {

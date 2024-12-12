@@ -280,7 +280,6 @@ if (e.target.matches("[selectorCitaId]"))
 {
     
 let idCita=e.target.getAttribute("selectorCitaId");
-alert(idCita);
 let infoCitaExpediente=document.querySelector("[class='Doctor_ContenedorCitas_Paciente_InformacionExpediente']");
 let xhr = new XMLHttpRequest();
 xhr.open('POST', '../Controllers/Ajax/PanelDoctores/Doctores_AdministrarPacientes/PacienteMostrarExpedienteCita.php', true);
@@ -397,6 +396,65 @@ else if (e.target.matches("[botontipo='CancelarCambiosPaciente']"))
         xhr.send(data); 
     
 }
+
+}
+
+if (e.target.matches("[btnGestionarCita]"))
+{
+let fechaCitaRecuperada=e.target.getAttribute("CitaGestionarIdCita");
+
+alert(fechaCitaRecuperada);
+}
+if (e.target.matches("[btnEliminarCita]"))
+{
+    let idCitaEliminar=e.target.getAttribute("CitaGestionarIdCitaEliminar");
+    alert(idCitaEliminar);
+}
+if (e.target.matches("[btnAgendarCita]"))
+{
+        let fechaCitaRecuperada=e.target.getAttribute("fechaCita");
+        let horaCitaRecuperada=e.target.getAttribute("horaCita");
+        let ElementoSeleccionPaciente=document.createElement("div");
+        ElementoSeleccionPaciente.classList.add("DoctoresAgregarCitaSeleccionPaciente");
+            ElementoSeleccionPaciente.innerHTML=`<p>Seleccione un paciente para agendarlo</p>
+            <select class='DoctoresAgregarCitaSeleccionPaciente_select'>
+            </select>
+            <div class='DoctoresAgregarCitaSeleccionPaciente_ContenedorBotones'>
+            <button DoctoresAgendarCita='Agendar'>Agendar la cita</button>
+            <button DoctoresAgendarCita='Cancelar'>Cancelar</button>
+            </div>`;
+document.body.appendChild(ElementoSeleccionPaciente);
+let elementoSelectpacientes=document.querySelector("[class='DoctoresAgregarCitaSeleccionPaciente_select']");
+let btnaceptarAgregar=document.querySelector("[DoctoresAgendarCita='Agendar']");
+let btnCancelarAgregar=document.querySelector("[DoctoresAgendarCita='Cancelar']");
+
+let xhr = new XMLHttpRequest();
+xhr.open('POST', '../Controllers/Ajax/PanelDoctores/Doctores_AdministrarCitas/SelectRecuperarPacientes.php', true);
+xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+xhr.onreadystatechange = function() {
+    if (xhr.readyState === 4) { 
+        if (xhr.status === 200) { 
+            elementoSelectpacientes.innerHTML=xhr.responseText;
+
+        } else {
+         
+            alert("Error del servidor. Código de estado: " + xhr.status);
+        }
+    }
+};
+
+
+xhr.send(); 
+
+btnaceptarAgregar.addEventListener("click",function()
+{
+
+});
+btnCancelarAgregar.addEventListener("click",function()
+{
+    document.body.removeChild(ElementoSeleccionPaciente);
+});
 
 }
 

@@ -450,7 +450,36 @@ xhr.send();
 btnaceptarAgregar.addEventListener("click",function()
 {
 
+    let xhr = new XMLHttpRequest();
+xhr.open('POST', '../Controllers/Ajax/PanelDoctores/Doctores_AdministrarCitas/AgendarCita.php', true);
+xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+xhr.onreadystatechange = function() {
+    if (xhr.readyState === 4) { 
+        if (xhr.status === 200) { 
+            
+            if (xhr.responseText=="false")
+            {
+                alert("No se pudo registrar el paciente intentelo de nuevo");
+            }
+            else {
+                alert("Cita registrada con exito");
+                objmenuDinamico.innerHTML=xhr.responseText;
+                document.body.removeChild(ElementoSeleccionPaciente);
+            }
+        } else {
+         
+            alert("Error del servidor. Código de estado: " + xhr.status);
+        }
+    }
+};
+
+let data="fechaCita="+encodeURIComponent(fechaCitaRecuperada)
++"&horaCita="+encodeURIComponent(horaCitaRecuperada)
++"&curpPaciente="+encodeURIComponent(elementoSelectpacientes.value);
+xhr.send(data); 
 });
+
 btnCancelarAgregar.addEventListener("click",function()
 {
     document.body.removeChild(ElementoSeleccionPaciente);

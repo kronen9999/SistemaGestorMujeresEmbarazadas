@@ -32,9 +32,6 @@ if (!$idSesion)
         <div class="botonMenu" botonSeleccionado="false" opcionMenu="botonDoctores">
         <img src="../Public/Assets/Icono_Administraador_Doctor.png" alt="IconoApartado">
         </div>
-        <div class="botonMenu" botonSeleccionado="false" opcionMenu="botonPacientes">
-        <img src="../Public/Assets/Icono_Administrador_Paciente.png" alt="IconoApartado">
-        </div>
         <a href="../index.php">
           <div class="botonMenu" botonSeleccionado="false" >
         <img src="../Public/Assets/Icono_CerrarSesion.png" alt="IconoApartado" botonSeleccionado="false">

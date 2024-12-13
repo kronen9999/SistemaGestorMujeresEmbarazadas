@@ -12,7 +12,7 @@
 <body>    
 <header class="cabezera">
             <p Apartado="titulo">Panel Principal</p>
-            <img src="../Public/Assets/Administrador_InformacionPerfil_Icono.png" alt="Icono_Administrador">
+            <img src="../Public/Assets/Doctores_Icono_Perfilpng.png" alt="Icono_Doctor">
         </header>
         <div class="menuLateral">
         <div class="botonMenu" botonSeleccionado="true" opcionMenu="botonHome">

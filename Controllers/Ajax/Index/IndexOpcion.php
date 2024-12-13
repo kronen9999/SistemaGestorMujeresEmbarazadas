@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else if ($resultado == "true" && $tipoLogin == "Paciente") {
         echo json_encode([
             'status' => 'success',
-            'message' => 'Se accedió como paciente'
+            'redirect' => '/Integrador7/SistemaGestorMujeresEmbarazadas/Views/PanelPacientes.php'
         ]);
     } else {
         echo json_encode([

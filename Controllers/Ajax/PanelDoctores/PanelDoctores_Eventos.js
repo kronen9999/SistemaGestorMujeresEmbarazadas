@@ -401,9 +401,194 @@ else if (e.target.matches("[botontipo='CancelarCambiosPaciente']"))
 
 if (e.target.matches("[btnGestionarCita]"))
 {
-let fechaCitaRecuperada=e.target.getAttribute("CitaGestionarIdCita");
+    let fechaCitaRecuperar=e.target.getAttribute("fechacita");
+let idCitaGestionar=e.target.getAttribute("CitaGestionarIdCita");
+let curpPacienteRecuperado=e.target.getAttribute("curppaciente");
+objmenuDinamico.innerHTML=`<div class='Doctores_Citas_GestionarCitas_subA1'>
+<div class='Doctores_Citas_GestionarCitas_subA1_divImg'>
+<img src='../Public/Assets/ImagenRegistrandoExpediente.png'>
+</div>
+<p>Registro de expediente</p>
+</div>
+<div class='Doctores_Citas_GestionarCitas_subA2'>
+<div class='Doctores_Citas_GestionarCitas_subInput'>
+<p>Peso Materno (KG):</p>
+<input type='number' datoExpediente='PesoMaterno'>
+</div>
+<div class='Doctores_Citas_GestionarCitas_subInput'>
+<p>Presion:</p>
+<div class='Doctores_Citas_GestionarCitas_subInput_Presion'> 
+<p >Sistolica</p>
+<input type='number' datoExpediente='PSistolica'>
+<p style="margin-left:1vw;">Diastolica</p>
+<input type='number' datoExpediente='PDiastolica'>
+</div>
+</div>
+</div> 
+<div class='Doctores_Citas_GestionarCitas_subA2'>
+<div class='Doctores_Citas_GestionarCitas_subInput'>
+<p>Frecuencia cardiaca fetal:</p>
+<input type='number' datoExpediente='FCFetal'>
+</div>
+<div class='Doctores_Citas_GestionarCitas_subInput'>
+<p>Altura uterina (cm):</p>
+<input type='number' datoExpediente='AlturaUterina'>
+</div>
+</div>
+<div class='Doctores_Citas_GestionarCitas_subA2'>
+<div class='Doctores_Citas_GestionarCitas_subInput'>
+<p>Movimientos fetales:</p>
+<input type='text' datoExpediente='MovimientosFetales'>
+</div>
+<div class='Doctores_Citas_GestionarCitas_subInput'>
+<p>Posicion fetal:</p>
+<input type='text' datoExpediente='PosicionFetal'>
+</div>
+</div>
+<div class='Doctores_Citas_GestionarCitas_subA2'>
+<div class='Doctores_Citas_GestionarCitas_subInput'>
+<p>Evaluacion de edemas:</p>
+<input type='text' datoExpediente='EEdemas'>
+</div>
+<div class='Doctores_Citas_GestionarCitas_subInput'>
+<div class='Doctores_Citas_GestionarCitas_subInput_Presion'> 
+<p>¿Se detecto algun riesgo en el paciente?</p>
+<select datoExpediente='selectRiesgoPaciente'>
+<option value='0' selected>No se detectaron riesgos</option>
+<option value='1'>Se detectaron riesgos</option>
+</select>
+</div>
+</div>
+</div>
+<div class='Doctores_Citas_GestionarCitas_subA2_divimput'>
+<button btn='GuardarExpedientePaciente'>Guardar expediente</button>
+<button btn='CancelarGuardarExpedientePaciente'>Cancelar expediente</button>
+</div>`;
 
-alert(fechaCitaRecuperada);
+let btnCancelarAgregarExpediente=document.querySelector("[btn='CancelarGuardarExpedientePaciente']");
+let btnGuardarExpedientePaciente=document.querySelector("[btn='GuardarExpedientePaciente']");
+
+if (btnCancelarAgregarExpediente)
+{
+    btnCancelarAgregarExpediente.addEventListener("click",function()
+{
+    let xhr2 = new XMLHttpRequest();
+    xhr2.open('POST', '../Controllers/Ajax/PanelDoctores/Doctores_AdministrarCitas/MostrarCitas.php', true);
+    xhr2.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    
+    xhr2.onreadystatechange = function() {
+        if (xhr.readyState === 4) { 
+            if (xhr.status === 200) { 
+            divMenuDinamico.setAttribute("TipoMenu","Doctores_PanelPrincipal_Pacientes");
+             divMenuDinamico.innerHTML = xhr2.responseText;
+
+            } else {
+             
+                alert("Error del servidor. Código de estado: " + xhr2.status);
+            }
+        }
+    };
+    
+    
+    xhr2.send("fecha="+encodeURIComponent(fechaCitaRecuperar)); 
+
+});
+    
+}
+if (btnGuardarExpedientePaciente)
+{
+btnGuardarExpedientePaciente.addEventListener("click",function()
+{
+    let pesoMaterno=document.querySelector('[datoexpediente="PesoMaterno"]').value;
+    let presion="";
+    let presionSistolica=document.querySelector('[datoexpediente="PSistolica"]').value;
+    let presionDiastolica=document.querySelector('[datoexpediente="PDiastolica"]').value;
+    let fCFetal=document.querySelector('[datoexpediente="FCFetal"]').value;
+    let alturaUterina=document.querySelector('[datoexpediente="AlturaUterina"]').value;
+    let movimientosFetales=document.querySelector('[datoexpediente="MovimientosFetales"]').value;
+    let posicionFetal=document.querySelector('[datoexpediente="PosicionFetal"]').value;
+    let evaluacionEdemas=document.querySelector('[datoexpediente="EEdemas"]').value;
+    let riesgoPaciente= document.querySelector('[datoexpediente="selectRiesgoPaciente"]').value;
+
+    if (
+        pesoMaterno.trim() === "" ||
+        presionSistolica.trim() === "" || 
+        presionDiastolica.trim() === "" || 
+        fCFetal.trim() === "" || 
+        alturaUterina.trim() === "" || 
+        movimientosFetales.trim() === "" || 
+        posicionFetal.trim() === "" || 
+        evaluacionEdemas.trim() === "" || 
+        riesgoPaciente.trim() === ""
+    ) {
+        alert("Debe de rellenar todos los campos para guardar el expediente");
+    }
+    else {
+        presion=presionSistolica+"-"+presionDiastolica;
+    let xhrExp = new XMLHttpRequest();
+    xhrExp.open('POST', '../Controllers/Ajax/PanelDoctores/Doctores_AdministrarCitas/AgregarExpediente.php', true);
+    xhrExp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    
+    xhrExp.onreadystatechange = function() {
+        if (xhrExp.readyState === 4) { 
+            if (xhrExp.status === 200) { 
+                if (xhrExp.responseText=="false")
+                {
+                    alert("verifique los campos y vuelva a intentarlo");
+                }
+                else {
+                    alert("Campos Actualizados correctamente");
+                    let xhr3 = new XMLHttpRequest();
+                    xhr3.open('POST', '../Controllers/Ajax/PanelDoctores/Doctores_AdministrarCitas/MostrarCitas.php', true);
+                    xhr3.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                    
+                    xhr3.onreadystatechange = function() {
+                        if (xhr3.readyState === 4) { 
+                            if (xhr3.status === 200) { 
+                            divMenuDinamico.setAttribute("TipoMenu","Doctores_PanelPrincipal_Pacientes");
+                             divMenuDinamico.innerHTML = xhr3.responseText;
+                
+                            } else {
+                             
+                                alert("Error del servidor. Código de estado: " + xhr3.status);
+                            }
+                        }
+                    };
+                    
+                    
+                    xhr3.send("fecha="+encodeURIComponent(fechaCitaRecuperar)); 
+                }
+             
+
+            } else {
+             
+                alert("Error del servidor. Código de estado: " + xhrExp.status);
+            }
+        }
+    };
+    
+   let  dataEnvioExpediente="pesoMaterno="+encodeURIComponent(pesoMaterno)
+   +"&presion="+encodeURIComponent(presion)
+   +"&fCFetal="+encodeURIComponent(fCFetal)
+   +"&alturaUterina="+encodeURIComponent(alturaUterina)
+   +"&movimientosFetales="+encodeURIComponent(movimientosFetales)
+   +"&posicionFetal="+encodeURIComponent(posicionFetal)
+   +"&evaulacionEdemas="+encodeURIComponent(evaluacionEdemas)
+   +"&riesgoPaciente="+encodeURIComponent(riesgoPaciente)
+   +"&idCita="+encodeURIComponent(idCitaGestionar)
+   +"&curpPaciente="+encodeURIComponent(curpPacienteRecuperado);
+    xhrExp.send(dataEnvioExpediente); 
+        
+    }
+
+    
+
+   
+
+});
+
+}
+
 }
 if (e.target.matches("[btnEliminarCita]"))
 {

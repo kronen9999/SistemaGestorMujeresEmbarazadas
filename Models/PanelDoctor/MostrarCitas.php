@@ -5,7 +5,7 @@ class MostrarCitasCalendario{
     public function RecpererarCitas($conexionDb,$fecha,$cedula)
     {
         $horasRango = range(9, 14); 
-        $consultaMostrarCitas= $conexionDb->prepare("SELECT HOUR(C.horaCita) AS hora, C.IdCita,C.CurpPaciente,P.Nombre,P.ApellidoPaterno,P.ApellidoMaterno FROM CITAS as C inner join PACIENTES as P on P.CurpPaciente=C.CurpPaciente 
+        $consultaMostrarCitas= $conexionDb->prepare("SELECT HOUR(C.horaCita) AS hora, C.IdCita,C.CurpPaciente,P.CurpPaciente,P.Nombre,P.ApellidoPaterno,P.ApellidoMaterno FROM CITAS as C inner join PACIENTES as P on P.CurpPaciente=C.CurpPaciente 
               WHERE C.FechaCita =? and C.Cedula=?");
 
               $consultaMostrarCitas->bind_param("ss",$fecha,$cedula);
@@ -31,14 +31,14 @@ class MostrarCitasCalendario{
             $detalles = $horasOcupadas[$hora];
             $htmlCitas.= "<div class='Cita_ocupada' tipoCita='SoloEdicion' > 
                     <p>Hora de la cita: {$hora}:00 No disponible  Paciente Agendado: {$detalles['Nombre']} {$detalles['ApellidoPaterno']} {$detalles['ApellidoMaterno']}</p>
-                    <button CitaGestionarIdCita='{$detalles['IdCita']}' btnGestionarCita=''>Gestionar</button>
+                    <button CitaGestionarIdCita='{$detalles['IdCita']}' btnGestionarCita='' curpPaciente='{$detalles['CurpPaciente']}' fechaCita='$fecha'>Gestionar</button>
                     <button CitaGestionarIdCitaEliminar='{$detalles['IdCita']}' btnEliminarCita=''>Desagendar</button>
                   </div>";
         } else {
             
             $htmlCitas.= "<div class='Cita_Desocupada' tipoCita='RegistroDisponible'>
             <p>Hora de la cita:{$hora}:00 Se encuentra disponible para agendar una cita</p>
-            <button btnAgendarCita='' fechaCita='$fecha' horaCita='{$hora}:00:00'>Agendar</button>
+            <button btnAgendarCita='' fechaCita='$fecha' horaCita='{$hora}:00:00' >Agendar</button>
             </div>";
         }
     }

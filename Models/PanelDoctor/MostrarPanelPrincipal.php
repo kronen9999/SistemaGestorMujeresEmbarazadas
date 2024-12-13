@@ -16,7 +16,7 @@ class PanelPrincipalDoctor
 
    $numPacientes="".$resultadoConsultaPacientes->num_rows;
 
-   $consultaNumCitas=$conexionDB->prepare(" select * from PACIENTES as P inner join MEDICOS as M on P.Cedula=M.Cedula inner join CITAS as C on C.CurpPaciente=P.CurpPaciente WHERE M.Cedula=? and C.FechaCita=?");
+   $consultaNumCitas=$conexionDB->prepare("select P.Nombre,P.Apellidopaterno,P.ApellidoMaterno,HOUR(C.HoraCita) as HoraCita from PACIENTES as P inner join MEDICOS as M on P.Cedula=M.Cedula inner join CITAS as C on C.CurpPaciente=P.CurpPaciente WHERE M.Cedula=? and C.FechaCita=? order by C.HoraCita");
 
    $consultaNumCitas->bind_param("ss",$cedula,$fechaHoy);
 
@@ -36,7 +36,7 @@ class PanelPrincipalDoctor
     while ($fila=$resultadoConsultaCitas->fetch_assoc())
     {
     $nombre=$fila["Nombre"];
-    $apellidoP=$fila["ApellidoPaterno"];
+    $apellidoP=$fila["Apellidopaterno"];
     $apellidoM=$fila["ApellidoMaterno"];
     $HoraCita=$fila["HoraCita"];
 
@@ -45,7 +45,7 @@ class PanelPrincipalDoctor
       <p>Paciente:</p>
       <p>$nombre $apellidoP $apellidoM</p>
       <p>Hora de la cita:</p>
-      <p>$HoraCita</p>
+      <p>$HoraCita:00</p>
    </div>";
     }
    }

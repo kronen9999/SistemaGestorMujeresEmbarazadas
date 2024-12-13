@@ -789,3 +789,93 @@ margin-bottom: 7vh;
     color: white;
 
 }
+
+/* Estilos para el apartado de agregar expediente*/
+
+.Doctores_Citas_GestionarCitas_subA1{
+    width: 100%;
+    height: 40vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.Doctores_Citas_GestionarCitas_subA1_divImg{
+    padding: 2vh;
+    box-shadow: 1px 1px 2px 2px #666666;
+    border-radius: 15px;
+    margin-left: 5vw;
+}
+
+.Doctores_Citas_GestionarCitas_subA1_divImg img{
+width: 10vw;
+height: 10vw;
+}
+
+.Doctores_Citas_GestionarCitas_subA1 p{
+    color: #666666;
+    font-size: 35px;
+    margin-left: 5vw;
+}
+
+.Doctores_Citas_GestionarCitas_subA2{
+    width: 100%;
+    height: 20vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.Doctores_Citas_GestionarCitas_subInput_Presion{
+    display: flex;
+    flex-direction: row;
+
+}
+.Doctores_Citas_GestionarCitas_subInput {
+    margin: 0vw 3vw;
+    
+    }
+
+.Doctores_Citas_GestionarCitas_subInput input{
+font-size: 22px;
+border: none;
+box-shadow: 1px 1px 2px 2px #666666;
+border-radius: 10px;
+}
+.Doctores_Citas_GestionarCitas_subInput p{
+font-size: 25px;
+
+}
+
+[datoExpediente='selectRiesgoPaciente']{
+font-size: 23px;
+border: none;
+box-shadow: 1px 1px 2px 2px #666666;
+border-radius: 10px;
+}
+
+.Doctores_Citas_GestionarCitas_subA2_divimput{
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.Doctores_Citas_GestionarCitas_subA2_divimput button{
+font-size: 16px;
+color: white;
+border-radius: 20px;
+padding: 1vh;
+width: 15vw;
+}
+[btn='GuardarExpedientePaciente']
+{
+background-color: #008bbd;
+margin-right: 2vw;
+}
+[btn='CancelarGuardarExpedientePaciente']
+{
+    background-color: #e10000;
+    margin-left: 2vw;
+}

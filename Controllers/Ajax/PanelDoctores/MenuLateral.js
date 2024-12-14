@@ -42,7 +42,8 @@ opcionMenuPerfil.addEventListener("click",function(e)
 });
 
 opcionMenuHome.addEventListener("click", function (e) {
-    if (this.getAttribute("botonSeleccionado") === "false") {
+
+  //  if (this.getAttribute("botonSeleccionado") === "false") {
         divMenuDinamico.setAttribute("TipoMenu", "Doctores_PanelPrincipal");
         this.setAttribute("botonSeleccionado", "true");
         opcionMenuPerfil.setAttribute("botonSeleccionado", "false");
@@ -92,7 +93,7 @@ opcionMenuHome.addEventListener("click", function (e) {
         };
 
         xhr.send();
-    }
+    //}
 });
 
 

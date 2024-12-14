@@ -4,7 +4,7 @@ class Doctor_MostrarPacientes{
 
     public function doctorRecuperarpacientes ($conexionDB,$cedula){
 
-        $consultaPacientes=$conexionDB->prepare("SELECT * FROM PACIENTES WHERE Cedula=?");
+        $consultaPacientes=$conexionDB->prepare("SELECT * FROM PACIENTES WHERE Cedula=? order by Nombre");
 
         $consultaPacientes->bind_param("s",$cedula);
      

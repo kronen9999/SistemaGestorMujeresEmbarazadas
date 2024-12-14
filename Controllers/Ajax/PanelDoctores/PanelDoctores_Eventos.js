@@ -148,7 +148,7 @@ if (e.target.matches("[botontipo='AgregarPaciente']")){
             telefonoPaciente.value.trim()==""||tipoSangrePaciente.value.trim()==""||fechaUmPaciente.value.trim()==""||
             ocupacionPaciente.value.trim()==""||direccionPaciente.value.trim()==""||contraseñaPaciente.value.trim()=="")
                 {
-                    alert("Debe de rellenar todos los campos para poder registrar un doctor")
+                    alert("Debe de rellenar todos los campos para poder registrar su Paciente")
                 }
                 else {
                     let xhr = new XMLHttpRequest();
@@ -537,7 +537,7 @@ btnGuardarExpedientePaciente.addEventListener("click",function()
                     alert("verifique los campos y vuelva a intentarlo");
                 }
                 else {
-                    alert("Campos Actualizados correctamente");
+                    alert("Expediente registrado con exito");
                     let xhr3 = new XMLHttpRequest();
                     xhr3.open('POST', '../Controllers/Ajax/PanelDoctores/Doctores_AdministrarCitas/MostrarCitas.php', true);
                     xhr3.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
@@ -592,8 +592,36 @@ btnGuardarExpedientePaciente.addEventListener("click",function()
 }
 if (e.target.matches("[btnEliminarCita]"))
 {
+    let fechaCitaRec=e.target.getAttribute("citagestionarfecha");
     let idCitaEliminar=e.target.getAttribute("CitaGestionarIdCitaEliminar");
-    alert(idCitaEliminar);
+    let xhrEliminarCita = new XMLHttpRequest();
+    xhrEliminarCita.open('POST', '../Controllers/Ajax/PanelDoctores/Doctores_AdministrarCitas/EliminarCita.php', true);
+    xhrEliminarCita.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                    
+                    xhrEliminarCita.onreadystatechange = function() {
+                        if (xhrEliminarCita.readyState === 4) { 
+                            if (xhrEliminarCita.status === 200) { 
+                                if (xhrEliminarCita.responseText=="false")
+                                {
+                                    alert("No se pudo actualizar");
+                                }
+                                else {
+                                    alert("Cita eliminada correctamente");
+                                     divMenuDinamico.setAttribute("TipoMenu","Doctores_PanelPrincipal_Pacientes");
+                             divMenuDinamico.innerHTML = xhrEliminarCita.responseText;
+                                }
+                           
+                
+                            } else {
+                             
+                                alert("Error del servidor. Código de estado: " + xhrEliminarCita.status);
+                            }
+                        }
+                    };
+                    
+                    
+                    xhrEliminarCita.send("idCita="+encodeURIComponent(idCitaEliminar)+"&fecha="+encodeURIComponent(fechaCitaRec)); 
+    
 }
 if (e.target.matches("[btnAgendarCita]"))
 {

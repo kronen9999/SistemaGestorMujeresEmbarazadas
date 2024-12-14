@@ -32,7 +32,7 @@ class MostrarCitasCalendario{
             $htmlCitas.= "<div class='Cita_ocupada' tipoCita='SoloEdicion' > 
                     <p>Hora de la cita: {$hora}:00 No disponible  Paciente Agendado: {$detalles['Nombre']} {$detalles['ApellidoPaterno']} {$detalles['ApellidoMaterno']}</p>
                     <button CitaGestionarIdCita='{$detalles['IdCita']}' btnGestionarCita='' curpPaciente='{$detalles['CurpPaciente']}' fechaCita='$fecha'>Gestionar</button>
-                    <button CitaGestionarIdCitaEliminar='{$detalles['IdCita']}' btnEliminarCita=''>Desagendar</button>
+                    <button CitaGestionarIdCitaEliminar='{$detalles['IdCita']}' CitaGestionarFecha='$fecha' btnEliminarCita=''>Desagendar</button>
                   </div>";
         } else {
             

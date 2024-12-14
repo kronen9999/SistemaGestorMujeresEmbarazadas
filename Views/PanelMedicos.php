@@ -18,7 +18,7 @@
         <div class="botonMenu" botonSeleccionado="true" opcionMenu="botonHome">
         <img src="../Public/Assets/IconoHome.png" alt="IconoApartado">
         </div>
-        <div class="botonMenu" botonSeleccionado="false" opcionMenu="botonPerfil">
+        <div class="botonMenu" botonSeleccionado="false" opcionMenu="botonPerfil" hidden>
         <img src="../Public/Assets/Icono_Administrador_Perfil.png" alt="IconoApartado">
         </div>
         <a href="../index.php">

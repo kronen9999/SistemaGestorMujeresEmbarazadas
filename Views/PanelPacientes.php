@@ -75,19 +75,38 @@ echo "<div class='DatosPersonalesPaciente'>
 
 </div>
 </div>
-</div>"
+</div>";
 
+$consultaNumExpedientes=$conexiondb->prepare("select * from Citas as C right join Expedientes as E on C.IdCita= E.IdCita where CurpPaciente=?");
+$consultaNumExpedientes->bind_param("s",$curpPaciente);
+$consultaNumExpedientes->execute();
+
+$numExpedientes=$consultaNumExpedientes->get_result()->num_rows;
+$consultaNumExpedientes->close();
+
+$consultaFactorRiesgo=$conexiondb->prepare("select * from Citas as C right join Expedientes as E on C.IdCita= E.IdCita where CurpPaciente=? and (FactorRiesgo='Sin factor de riesgo' or FactorRiesgo='0'); ");
+$consultaFactorRiesgo->bind_param("s",$curpPaciente);
+$consultaFactorRiesgo->execute();
+
+$numFactorRiesgo=$consultaFactorRiesgo->get_result()->num_rows;
+$consultaFactorRiesgo->close();
+
+
+echo "<label idLbl='NumExpediente' numFilas='$numExpedientes' numRiesgo='$numFactorRiesgo'></label>";
 ?>
         <div class="PanelPrincipalPaciente_Grafico" id="Divgrafico_pacientes">
 <script >
     document.addEventListener("DOMContentLoaded", function () {
+    const numExp=document.querySelector('[idLbl="NumExpediente"]').getAttribute("numFilas");
+    const numFactorSR=document.querySelector('[idLbl="NumExpediente"]').getAttribute("numRiesgo");
+    const factR=numExp-numFactorSR;
     const chartDom = document.getElementById('Divgrafico_pacientes');
     const myChart = echarts.init(chartDom);
 
     const option = {
         backgroundColor: '#381d30',
         title: {
-            text: 'Seguimiento de expedientes:',
+            text: 'Expedientes completos: '+numExp,
             left: 'center',
             top: 20,
             textStyle: {
@@ -99,8 +118,8 @@ echo "<div class='DatosPersonalesPaciente'>
         },
         visualMap: {
             show: false,
-            min: 80,
-            max: 600,
+            min: 6,
+            max: 1,
             inRange: {
                 colorLightness: [0, 1]
             }
@@ -112,10 +131,10 @@ echo "<div class='DatosPersonalesPaciente'>
                 radius: '55%',
                 center: ['50%', '50%'],
                 data: [
-                    { value: 335, name: 'Directo' },
-                    { value: 310, name: 'Email' },
+                    { value: numFactorSR, name: 'Registros si riesgo' },
+                    { value: factR, name: 'Resgistros con riesgo' }
                     
-                    { value: 400, name: 'Motores de búsqueda' }
+                    
                 ].sort(function (a, b) {
                     return a.value - b.value;
                 }),
@@ -184,10 +203,10 @@ else {
 <p>Hora de la cita:$horaCita</p>
 </div>
 <div class='Contenedor_Expedientes_ExpedienteInfo'>
-<p>Peso Materno:$pesoMaterno</p>
+<p>Peso Materno:$pesoMaterno kg</p>
 <p>Presion Arterial:$presionArterial</p>
 <p>Frecuencia Cardiaca Fetal:$frecuenciaCF Lpm</p>
-<p>Altura uterina:$alturaUterina</p>
+<p>Altura uterina:$alturaUterina cm</p>
 <p>Movimientos fetales:$movimientosfetales</p>
 <p>Posicion fetal:$posicionFetal</p>
 <p>Evaluacion de edemas:$evaluacionEdemas</p>

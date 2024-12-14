@@ -159,7 +159,9 @@ background-color: #005777;
     margin-left: 1vw;
     border-radius: 20px ;
     box-shadow: 1px 1px 2px 2px #666666;
+    
 }
+
 
 .Menu_Dinamico_Doctores_PanelPrincipal_SubApartado1_Subapartado1_ContenedorInfo:nth-child(1){
     background-color: white;
@@ -168,8 +170,15 @@ background-color: #005777;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
+transition-property: transform;
+    transition-duration: .5s;
 }
+.Menu_Dinamico_Doctores_PanelPrincipal_SubApartado1_Subapartado1_ContenedorInfo:nth-child(1):hover{
+   transform: scale(1.1);
+}
+.Menu_Dinamico_Doctores_PanelPrincipal_SubApartado1_Subapartado1_ContenedorInfo:nth-child(2):hover{
+    transform: scale(1.1);
+ }
 
 .Menu_Dinamico_Doctores_PanelPrincipal_SubApartado1_Subapartado1_ContenedorInfo:nth-child(2){
     margin-bottom: 5vh;
@@ -177,6 +186,8 @@ background-color: #005777;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    transition-property: transform;
+    transition-duration: .5s;
 
 }
 
@@ -234,7 +245,14 @@ display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
+transition-property: transform;
+transition-duration:.5s ;
 }
+
+
+.Menu_Dinamico_Doctores_PanelPrincipal_SubApartado2_PacienteContenedor:hover{
+    transform: scale(1.1);
+    }
 
 .Menu_Dinamico_Doctores_PanelPrincipal_SubApartado2_PacienteContenedor img{
     width: 7vw;
@@ -349,7 +367,13 @@ align-items: center;
 margin: 1vh;
 box-shadow: 1px 1px 2px 2px #666666;
 border-radius: 10px;
+transition-property: transform;
+transition-duration: .5s;
 }
+.Doctores_AdministrarPacientes_2_AgregarPaciente:hover{
+   transform: scale(1.05);
+}
+
 
 .Doctores_AdministrarPacientes_2_AgregarPaciente img{
     width: 5vw;
@@ -371,6 +395,12 @@ align-items: center;
 margin: 1vh;
 box-shadow: 1px 1px 2px 2px #666666;
 border-radius: 10px;
+transition-property: transform;
+transition-duration: .5s;
+}
+
+.Doctores_AdministrarPacientes_2_Paciente:hover{
+    transform: scale(1.05);
 }
 
 .Doctores_AdministrarPacientes_2_Paciente img{
@@ -473,8 +503,17 @@ font-size: 25px;
     padding: 1vh;
     border-radius: 20px;
     width: 15vw;
-
+    transition-property: transform;
+    transition-duration: .5s;
 }
+
+.Doctores_AgregarPaciente_Apartado3 button:hover{
+    transform: scale(1.1);
+}
+.Doctores_AgregarPaciente_Apartado3 button:active{
+    transform: scale(.8);
+}
+
 
 .Doctores_AgregarPaciente_Apartado3 button:nth-child(1){
     background-color: #008CC2;
@@ -520,7 +559,17 @@ display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
+transition-property: transform;
+transition-duration: .5s;
 }
+
+
+.Doctores_MenuPaciente_Opcion:hover{
+    transform: scale(1.1);
+    }
+    .Doctores_MenuPaciente_Opcion:active{
+    transform: scale(.8);
+    }
 
 .Doctores_MenuPaciente_Opcion img{
     width: 7vw;
@@ -607,7 +656,18 @@ box-shadow: 1px 1px 2px 2px #666666;
 border-radius: 15px;
 margin-bottom: 1vh;
 margin-top: 1vh;
+transition-property: transform;
+transition-duration: .5s;
+}
 
+
+[selectorCitaId]:hover
+{
+transform: scale(1.1);
+}
+[selectorCitaId]:active
+{
+transform: scale(.8);
 }
 
 [selectorCitaId] p{
@@ -687,6 +747,12 @@ text-align: center;
     margin: 1vh;
     border-radius: 15px;
     box-shadow: 1px 1px 2px 2px #666666;
+    transition-property: transform;
+    transition-duration: .5s;
+}
+
+.Doctores_Fecha_ContenedorCitas div:hover{
+    transform: scale(1.05);
 }
 
 .Doctores_Fecha_ContenedorCitas [tipoCita='RegistroDisponible']
@@ -716,6 +782,21 @@ font-size: 18px;
    border-radius: 10px;
    padding:1vh;
 }
+
+.Doctores_Fecha_ContenedorCitas [tipoCita='SoloEdicion'] button,.Doctores_Fecha_ContenedorCitas [tipoCita='RegistroDisponible'] button {
+    transition-property: transform;
+    transition-duration: .5s;
+}
+
+.Doctores_Fecha_ContenedorCitas [tipoCita='SoloEdicion'] button:hover,.Doctores_Fecha_ContenedorCitas [tipoCita='RegistroDisponible'] button:hover{
+    transform: scale(1.1);
+}
+.Doctores_Fecha_ContenedorCitas [tipoCita='SoloEdicion'] button:active,.Doctores_Fecha_ContenedorCitas [tipoCita='RegistroDisponible'] button:active{
+    transform: scale(.8);
+}
+
+
+
 .Doctores_Fecha_ContenedorCitas [tipoCita='SoloEdicion'] [btnEliminarCita]
 {
     margin-left: 2vw;
@@ -782,12 +863,24 @@ margin-bottom: 7vh;
 
 }
 
+
 .DoctoresAgregarCitaSeleccionPaciente_ContenedorBotones [DoctoresAgendarCita='Cancelar']
 {
     margin-left: 2vw;
     background-color: #e10000;
     color: white;
 
+}
+
+.DoctoresAgregarCitaSeleccionPaciente_ContenedorBotones button{
+    transition-property: transform;
+    transition-duration: .5s;
+}
+.DoctoresAgregarCitaSeleccionPaciente_ContenedorBotones button:hover{
+   transform: scale(1.1);
+}
+.DoctoresAgregarCitaSeleccionPaciente_ContenedorBotones button:active{
+    transform: scale(.8);
 }
 
 /* Estilos para el apartado de agregar expediente*/
@@ -868,7 +961,16 @@ color: white;
 border-radius: 20px;
 padding: 1vh;
 width: 15vw;
+transition-property: transform;
+transition-duration: .5s;
 }
+.Doctores_Citas_GestionarCitas_subA2_divimput button:hover{
+    transform:scale(1.1);
+    }
+    .Doctores_Citas_GestionarCitas_subA2_divimput button:active{
+        transform:scale(.8);
+        }
+
 [btn='GuardarExpedientePaciente']
 {
 background-color: #008bbd;

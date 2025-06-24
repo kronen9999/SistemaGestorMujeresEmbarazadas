@@ -77,14 +77,14 @@ echo "<div class='DatosPersonalesPaciente'>
 </div>
 </div>";
 
-$consultaNumExpedientes=$conexiondb->prepare("select * from Citas as C right join Expedientes as E on C.IdCita= E.IdCita where CurpPaciente=?");
+$consultaNumExpedientes=$conexiondb->prepare("select * from CITAS as C right join EXPEDIENTES as E on C.IdCita= E.IdCita where CurpPaciente=?");
 $consultaNumExpedientes->bind_param("s",$curpPaciente);
 $consultaNumExpedientes->execute();
 
 $numExpedientes=$consultaNumExpedientes->get_result()->num_rows;
 $consultaNumExpedientes->close();
 
-$consultaFactorRiesgo=$conexiondb->prepare("select * from Citas as C right join Expedientes as E on C.IdCita= E.IdCita where CurpPaciente=? and (FactorRiesgo='Sin factor de riesgo' or FactorRiesgo='0'); ");
+$consultaFactorRiesgo=$conexiondb->prepare("select * from CITAS as C right join EXPEDIENTES as E on C.IdCita= E.IdCita where CurpPaciente=? and (FactorRiesgo='Sin factor de riesgo' or FactorRiesgo='0'); ");
 $consultaFactorRiesgo->bind_param("s",$curpPaciente);
 $consultaFactorRiesgo->execute();
 
@@ -175,7 +175,7 @@ echo "<label idLbl='NumExpediente' numFilas='$numExpedientes' numRiesgo='$numFac
         </div>
 <div class='Contenedor_Expedientes'>
 <?php
-$consultaCitasEx=$conexiondb->prepare("select * from Citas as C right join Expedientes as E on C.IdCita= E.IdCita where CurpPaciente=?");
+$consultaCitasEx=$conexiondb->prepare("select * from CITAS as C right join EXPEDIENTES as E on C.IdCita= E.IdCita where CurpPaciente=?");
 $consultaCitasEx->bind_param("s",$curpPaciente);
 $consultaCitasEx->execute();
 
